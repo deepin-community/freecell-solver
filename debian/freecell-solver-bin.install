@@ -1,0 +1,8 @@
+debian/tmp/usr/bin/fc-solve
+debian/tmp/usr/bin/freecell-solver-range-parallel-solve
+debian/tmp/usr/bin/gen-multiple-pysol-layouts
+debian/tmp/usr/bin/make_pysol_freecell_board.py
+debian/tmp/usr/bin/pi-make-microsoft-freecell-board
+debian/tmp/usr/bin/transpose-freecell-board.py
+debian/tmp/usr/share/freecell-solver/preset*
+debian/tmp/usr/share/man/man6/*

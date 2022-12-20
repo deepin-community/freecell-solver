@@ -1,0 +1,2321 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+<head>
+<meta charset="UTF-8"/>
+<!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge"/><![endif]-->
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<meta name="generator" content="Asciidoctor 1.5.7.1"/>
+<meta name="author" content="Shlomi Fish"/>
+<title>Freecell Solver&#8217;s News File</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,600italic%7CNoto+Serif:400,400italic,700,700italic%7CDroid+Sans+Mono:400,700"/>
+<link rel="stylesheet" href="./asciidoctor.css"/>
+</head>
+<body class="article">
+<div id="header">
+<h1>Freecell Solver&#8217;s News File</h1>
+<div class="details">
+<span id="author" class="author">Shlomi Fish</span><br/>
+<span id="email" class="email"><a href="mailto:shlomif@cpan.org">shlomif@cpan.org</a></span><br/>
+</div>
+</div>
+<div id="content">
+<div class="sect1">
+<h2 id="news_version_5_0_0_27_oct_2018">Version 5.0.0: (27-Oct-2018)</h2>
+<div class="sectionbody">
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p><strong>Breaking change</strong>: made the userland headers <code>fcs_user.h</code>, <code>fcs_cl.h</code>, etc.
+includable only as <code>#include &lt;freecell-solver/fcs_cl.h&gt;</code>. The API and ABI
+should otherwise remain the same.</p>
+</li>
+<li>
+<p>Add the gen-multiple-pysol-layouts executable to generate several numbered
+deals as separate files.</p>
+</li>
+<li>
+<p>Added the experimental fc-solve-multi solver to solve several files in
+one go (not installed by default).</p>
+</li>
+<li>
+<p>Rename the AsciiDoc documents from <code>*.txt</code> to <code>\*.asciidoc</code>, in order to
+please GitHub/etc. ; updated them and fixed some formatting.</p>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="news_version_4_20_0_25_jul_2018">Version 4.20.0: (25-Jul-2018)</h2>
+<div class="sectionbody">
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>New --iter-output-step command-line flag.</p>
+</li>
+<li>
+<p>New --hint-on-intractable command-line flag and functionality.</p>
+</li>
+<li>
+<p>Add -DFCS_MAX_RANK=&#8230;&#8203; compile time option to set the maximal rank below 13.</p>
+</li>
+<li>
+<p>Add the -DFCS_BREAK_BACKWARD_COMPAT_2=1 compile-time option which improves
+performance but breaks bug-to-bug backward compatibility.</p>
+</li>
+<li>
+<p>Add the -DFCS_UNSAFE=1 option.</p>
+</li>
+<li>
+<p>Converted the python-based testing scripts from TAP.Simple to pycotap.</p>
+</li>
+<li>
+<p>Other speedups and refactorings.</p>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="news_version_4_18_0_22_mar_2018">Version 4.18.0: (22-Mar-2018)</h2>
+<div class="sectionbody">
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Convert the code in board_gen/ from the GPL to the MIT/Expat licence.</p>
+</li>
+<li>
+<p>Convert the hash function to xxHash ( <a href="https://cyan4973.github.io/xxHash/" class="bare">https://cyan4973.github.io/xxHash/</a> )
+for improved performance.</p>
+</li>
+<li>
+<p>Eliminate several GCC warnings and other cleanups and speedups.</p>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="news_version_4_16_0_21_jan_2018">Version 4.16.0: (21-Jan-2018)</h2>
+<div class="sectionbody">
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Add a new <code>-l looking-glass</code> command line preset, which provides improved
+speed.</p>
+</li>
+<li>
+<p>Add some programs to find the deal index of a card layout.</p>
+</li>
+<li>
+<p>Remove "freecell-solver-config" - one should use pkg-config instead.</p>
+</li>
+<li>
+<p>Many small optimizations and cleanups.</p>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="news_version_4_14_1_06_oct_2017">Version 4.14.1: (06-Oct-2017)</h2>
+<div class="sectionbody">
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Fix the compilation and tests when <code>__int128</code> is not available (e.g: on
+x86-32 systems).</p>
+</li>
+<li>
+<p>Fix a double-free error in certain conditions. Thanks to Theodore Pringle.
+See: <a href="https://groups.yahoo.com/neo/groups/fc-solve-discuss/conversations/messages/1554" class="bare">https://groups.yahoo.com/neo/groups/fc-solve-discuss/conversations/messages/1554</a></p>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="news_version_4_14_0_02_oct_2017">Version 4.14.0: (02-Oct-2017)</h2>
+<div class="sectionbody">
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Add a new <em>j</em> move of moving cards from freecells to empty columns and
+immediately putting cards on top.</p>
+</li>
+<li>
+<p>Add a new <code>-l cookie-monster</code> command line preset based on it which sports
+improved speed.</p>
+</li>
+<li>
+<p>Fixed a bug with a potential hang with two identically-depthed <code>-dto2</code>
+flags:
+<a href="https://groups.yahoo.com/neo/groups/fc-solve-discuss/conversations/messages/1549" class="bare">https://groups.yahoo.com/neo/groups/fc-solve-discuss/conversations/messages/1549</a></p>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="news_version_4_12_1_10_jun_2017">Version 4.12.1: (10-Jun-2017)</h2>
+<div class="sectionbody">
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Fix dealing of high indexed (above 2G) deals on some 32-bit and/or
+MS Windows platforms.</p>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="news_version_4_12_0_09_jun_2017">Version 4.12.0: (09-Jun-2017)</h2>
+<div class="sectionbody">
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Fix a problem where the fc-pro-range-solver ignored game parameters such
+as <code>--freecells-num 0</code>. (Thanks to Larry).</p>
+</li>
+<li>
+<p>Enable building an MS Windows 32-bit installer using AppVeyor. This will
+facilitate releasing them along with the source.</p>
+</li>
+<li>
+<p>Some more minor cleanups and optimizations.</p>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="news_version_4_10_0_31_may_2017">Version 4.10.0: (31-May-2017)</h2>
+<div class="sectionbody">
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Add some new compile-time options that may make the runtime faster, but
+may remove or break functionality.</p>
+</li>
+<li>
+<p>Convert the python-based automated tests to use cffi, which is more modern
+and recommended, instead of ctypes.</p>
+</li>
+<li>
+<p>Many code cleanups, refactorings, and optimizations.</p>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="news_version_4_8_0_20_jan_2017">Version 4.8.0: (20-Jan-2017)</h2>
+<div class="sectionbody">
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Fix a crash when doing <code>fc-solve -g [non-existent-game]</code> (with tests):
+<a href="https://github.com/shlomif/fc-solve/issues/11" class="bare">https://github.com/shlomif/fc-solve/issues/11</a> .</p>
+</li>
+<li>
+<p>Mention the final parameter name (instead of just saying "(null)") when
+it accepts a non-given argument:
+<a href="https://github.com/shlomif/fc-solve/issues/12" class="bare">https://github.com/shlomif/fc-solve/issues/12</a> .</p>
+</li>
+<li>
+<p>Remove DEBUG_STATES - it was slow and not really helpful and caused bloat.</p>
+</li>
+<li>
+<p>Implement condition variables instead of usleep in the depth_dbm_solver .
+<a href="https://github.com/shlomif/fc-solve/issues/8" class="bare">https://github.com/shlomif/fc-solve/issues/8</a> . It now also supports processing
+batches of items from the queue in a single transaction.</p>
+</li>
+<li>
+<p>Got a test suite to pass on MS-Windows / AppVeyor:
+<a href="https://ci.appveyor.com/project/shlomif/fc-solve" class="bare">https://ci.appveyor.com/project/shlomif/fc-solve</a> .</p>
+</li>
+<li>
+<p>Many large and small code cleanups and refactorings.</p>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="news_version_4_6_1_14_jan_2017">Version 4.6.1: (14-Jan-2017)</h2>
+<div class="sectionbody">
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Fix for building the package in certain conditions (originally created for
+the Mageia Linux package).</p>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="news_version_4_6_0_04_dec_2016">Version 4.6.0: (04-Dec-2016)</h2>
+<div class="sectionbody">
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Got the production code and tests to pass on ARM Linux. Previously
+<code>fc-solve</code> just hanged there.</p>
+</li>
+<li>
+<p>Fix the tests and <code>depth_dbm_fc_solver</code> on 32-bit platforms.</p>
+</li>
+<li>
+<p>Apply the large Freecell Pro seeds deals generation to the board generators
+and range solvers.</p>
+</li>
+<li>
+<p>Option to use <code>__int128</code> instead of libGMP for the DBM solvers - a
+significant speed-up, see
+<a href="http://fc-solve.shlomifish.org/charts/dbm-solver-__int128-optimisation/" class="bare">http://fc-solve.shlomifish.org/charts/dbm-solver-__int128-optimisation/</a> .</p>
+</li>
+<li>
+<p>Revise some awkward phrasing in the README .</p>
+</li>
+<li>
+<p>Many small and larger cleanups.</p>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="news_version_4_4_0_22_sep_2016">Version 4.4.0: (22-Sep-2016)</h2>
+<div class="sectionbody">
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Add the <code>-l one-big-family</code>, or <code>-l obf</code> for short, preset which improves
+the average performance for solving Freecell deals.</p>
+</li>
+<li>
+<p>Add the <code>transpose-freecell-board.py</code> utility to transpose a board from
+having stacks-in-columns to a stacks-in-lines format acceptable by fc-solve.</p>
+</li>
+<li>
+<p>Fix a bug where using a flare-based scan while incrementally increasing
+the iterations limit could have created a situation where one scan gets all
+the iterations.</p>
+</li>
+<li>
+<p>Remove make-gnome-freecell-board (GNOME Freecell was discontinued)
+and make-aisleriot-freecell-board (as AisleRiot no longer has numbered deals).</p>
+</li>
+<li>
+<p>Fix some crashes that were found using
+<a href="http://lcamtuf.coredump.cx/afl/">American Fuzzy Lop</a>, caused due to misuse of
+the command line arguments or the input board format.</p>
+</li>
+<li>
+<p>Fix a major regression bug in the <code>depth_dbm_fc_solve</code> and possibly related
+solvers that prevented it from making progress.</p>
+</li>
+<li>
+<p>Some optimisations for improving general performance on all presets.</p>
+</li>
+<li>
+<p>Many code cleanups and refactorings.</p>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="news_version_4_2_0_25_mar_2016">Version 4.2.0: (25-Mar-2016)</h2>
+<div class="sectionbody">
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>New command-line preset <code>-l conspiracy-theory</code> or <code>-l ct</code> for short that is
+faster than <code>-l as</code> on average.</p>
+</li>
+<li>
+<p>Bug fix: some error messages are not emitted to STDERR instead of STDOUT.
+Furthermore, the exit code on some failures is now non-zero.</p>
+</li>
+<li>
+<p>Bug fix: flares names in the flares plan is now their exact strings instead
+of any possible beginning of them.</p>
+</li>
+<li>
+<p>Add a compile-time option to not compile the FC-Pro moves count (used
+primarily for determining the shortest flares). It is
+<code>-DFCS_WITHOUT_FC_PRO_MOVES_COUNT=1</code> .</p>
+</li>
+<li>
+<p>Bug fix: properly clean-up solution_moves on recycle.</p>
+</li>
+<li>
+<p>Bug fix: fix the output of the Freecell&#8217;s dashes in non-parsable output.</p>
+</li>
+<li>
+<p>Add a compile-time option (<code>-DFCS_BREAK_BACKWARD_COMPAT_1</code>) to break some
+backward compatibility, such as old functions, cards with "10" instead of "T",
+trailing whitespace in output, and the non-"-p" output of states. This makes
+the binaries smaller and faster but may break some existing functionality.
+Enabling it is not recommended.</p>
+</li>
+<li>
+<p>Freecell Solver now uses <a href="https://travis-ci.org/">Travis-CI</a> to build and
+test the code in several configurations on each commit. This is part of the
+so-called “Continuous Integration” practice.</p>
+</li>
+<li>
+<p>Added support for clang to the PGO (= profile-guided-optimizations)
+scripts.</p>
+</li>
+<li>
+<p>Moved away or deleted many scripts and other cruft.</p>
+</li>
+<li>
+<p>Remove FCS_STATE_STORAGE_INDIRECT - it was old and slow and the hash lookup
+or a balanced binary tree should be used instead.</p>
+</li>
+<li>
+<p>Remove the experimental flipping support and made the default for cards
+not to be flippable at all. (The code did not build with it enabled anyway.)</p>
+</li>
+<li>
+<p>Many small and large cleanups, optimizations and refactorings - hopefully
+without breaking backward-compatibility.</p>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="news_version_4_0_2_14_jan_2016">Version 4.0.2: (14-Jan-2016)</h2>
+<div class="sectionbody">
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Correct tarball release - 4.0.1 should not be used.</p>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="news_version_4_0_1_14_jan_2016">Version 4.0.1: (14-Jan-2016)</h2>
+<div class="sectionbody">
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Fix the tests for the new Games-Solitaire-Verify (0.1601).</p>
+</li>
+<li>
+<p>Apply a patch from <a href="http://www.mageia.org/">Mageia</a> to prevent underlinking
+during build. Thanks!</p>
+</li>
+<li>
+<p>Disable linking to the gperftools’ tcmalloc library if the test suite
+is enabled due to <a href="https://github.com/gperftools/gperftools/issues/758" class="bare">https://github.com/gperftools/gperftools/issues/758</a> .</p>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="news_version_4_0_0_27_sep_2015">Version 4.0.0: (27-Sep-2015)</h2>
+<div class="sectionbody">
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Integrate the scans of Tom Holroyd’s patsolve, for a faster atomic
+moves-based solver. See the <code>--method patsolve</code>, <code>--patsolve-x-param</code>
+and <code>--patsolve-y-param</code> options in the <code>USAGE.txt</code> file.</p>
+</li>
+<li>
+<p>Add the <code>-dto2</code> / <code>--depth-tests-order2</code> flag to provide a corrected
+version of the depth-tests-order feature without the depth string and comma
+being prefixed to the tests order due to an oversight.</p>
+</li>
+<li>
+<p>Convert the Python code (tests + board generation) to Python 3, because
+it seems that Python 2 is going away. To run it, we require the "random2"
+module from PyPI : <a href="https://pypi.python.org/pypi/random2" class="bare">https://pypi.python.org/pypi/random2</a> .</p>
+</li>
+<li>
+<p>Many small cleanups and optimisations.</p>
+</li>
+<li>
+<p>Source tarball is now “.tar.xz”.</p>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="news_version_3_26_0_19_may_2014">Version 3.26.0: (19-May-2014)</h2>
+<div class="sectionbody">
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Remove the documents (e.g: <code>README</code>, <code>COPYING</code>, <code>AUTHORS</code>), which
+have duplicates with a .txt extension from the source distribution, to save
+space. They are still being copied to their location in the BINARY_DIR
+where cmake is invoked from.</p>
+</li>
+<li>
+<p>Fix a division/modulo by zero problem that yielded a floating-point
+exception, as reported by the Mayhem team to the Debian bug tracker:
+<a href="https://bugs.debian.org/cgi-bin/bugreport.cgi?bug=715914" class="bare">https://bugs.debian.org/cgi-bin/bugreport.cgi?bug=715914</a> . Thanks!</p>
+</li>
+<li>
+<p>Fix <code>board_gen/pi-make-microsoft-freecell-board</code>
+<code>board_gen/make-aisleriot-freecell-board</code> and<br/>
+<code>board_gen/make-gnome-freecell-board</code> from crashing if only a single "-t"
+flag is given. A crash was reported by the Mayhem team to the Debian
+bug tracker: <a href="https://bugs.debian.org/cgi-bin/bugreport.cgi?bug=716097" class="bare">https://bugs.debian.org/cgi-bin/bugreport.cgi?bug=716097</a> . Thanks!</p>
+</li>
+<li>
+<p>Fix the automated tests, so they will support the new versions of
+Games::Solitaire::Verify[<a href="http://fc-solve.shlomifish.org/verify-code/" class="bare">http://fc-solve.shlomifish.org/verify-code/</a>] .</p>
+</li>
+<li>
+<p>Remove <code>make_microsoft_freecell_board.c</code> - it is not useful and
+<code>pi-make-microsoft-freecell-board</code> or <code>make_pysol_freecell_board.py</code> should
+be used instead.</p>
+</li>
+<li>
+<p>Fix the build process for version 4.9.x of the GCC compiler.</p>
+</li>
+<li>
+<p>Add the pseudo-DFS solver in <code>pseudo_dfs_atomic_moves_solver.c</code> ,
+which is another attempt at solving hard two freecell deals. It runs,
+but generates a very large stack with the deal in question (MS #384243 ).</p>
+</li>
+<li>
+<p>The <code>summarize-fc-solve</code> script now accepts some game parameters followed
+by a double-dash ("--"), followed by preset parameters for the solver.</p>
+</li>
+<li>
+<p>Various fixes for warnings and errors for the build process, while using
+CMake-3.0.0-rc3 (what will become CMake-3.0.0).</p>
+</li>
+<li>
+<p>Some cleanups, refactorings, modernisations, and minor optimisations.</p>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="news_version_3_24_0_23_feb_2014">Version 3.24.0: (23-Feb-2014)</h2>
+<div class="sectionbody">
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>This release is dedicated to the memory of Adrian Ettlinger (see
+<a href="https://en.wikipedia.org/wiki/Adrian_Ettlinger" class="bare">https://en.wikipedia.org/wiki/Adrian_Ettlinger</a> ) who passed away on
+23 October 2013, who was a good Internet friend of the primary maintainer of
+Freecell Solver (= Shlomi Fish), and who contributed a great deal to Freecell
+Solver and to Freecell research and programming in general (among other
+life achievements, and contributions). You can find an obituary of
+Mr. Ettlinger by Shlomi Fish here:
+<a href="https://groups.yahoo.com/neo/groups/fc-solve-discuss/conversations/messages/1379" class="bare">https://groups.yahoo.com/neo/groups/fc-solve-discuss/conversations/messages/1379</a>
+and the <code>video-editing</code> preset (see below) was named in honor of his previous
+work in pioneering non-linear video editing.</p>
+</li>
+<li>
+<p>Handle board/layout inputs without a trailing newline character on the last
+line properly (thanks to someone who reported it via E-mail with respect to
+the JavaScript-based solver).</p>
+</li>
+<li>
+<p>Add the <code>-l video-editing</code> or <code>-l ve</code> flare-based preset for shorter
+solutions (on average).</p>
+</li>
+<li>
+<p>The distribution now contains the sources for the so-called
+split-fcc-solver, which was originally conceived as an attempt to
+determine whether the Windows Freecell deal No. 384,243 is solvable with
+two freecells or not. The attempt failed because the split-FCC-solver
+generated large intermediate outputs, but it may prove of some utility
+in the future (while being experimental).</p>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="news_version_3_22_0_05_oct_2013">Version 3.22.0: (05-Oct-2013)</h2>
+<div class="sectionbody">
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Made sure unknown options which have a prefix that is a recognised option
+(e.g: <code>--resetjunk</code> vs. <code>--reset</code>), will be reported as such instead of
+processed as the prefix automagically.</p>
+</li>
+<li>
+<p>Fix the Win32 NSIS package, so it will build, run and process the presets.</p>
+</li>
+<li>
+<p>The JavaScript-based solver now accepts arbitrary fc-solve command line
+parameters, so it can solve any of the supported variants of Solitaire.</p>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="news_version_3_20_1_01_jul_2013">Version 3.20.1: (01-Jul-2013)</h2>
+<div class="sectionbody">
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Fix the build and silenced some warnings on MinGW/GCC/Win32.</p>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="news_version_3_20_0_26_jun_2013">Version 3.20.0: (26-Jun-2013)</h2>
+<div class="sectionbody">
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Major speedups to the Simple Simon code - including order of complexity
+ones where a lookup is now O(1) instead of O(num_cards). The Simple Simon
+code was in general heavily refactored and cleaned up.</p>
+</li>
+<li>
+<p>Some bugs in the Simple Simon algorithms were fixed, slightly modifying
+the outputted solutions.</p>
+</li>
+<li>
+<p>Add missing BuildRequires to the RPM .spec .</p>
+</li>
+<li>
+<p>Add the <code>qualified-seed-improved</code> preset.</p>
+</li>
+<li>
+<p>Fix the run-time display of the iteration count during
+<code>pkill -USR1 fc-solve</code>.</p>
+</li>
+<li>
+<p>Some minor refactorings and optimisations.</p>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="news_version_3_18_1_30_may_2013">Version 3.18.1: (30-May-2013)</h2>
+<div class="sectionbody">
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Fix "make install" - there were some problems with the generation of
+the man pages.</p>
+</li>
+<li>
+<p>Fix the RPM .spec building.</p>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="news_version_3_18_0_30_may_2013">Version 3.18.0: (30-May-2013)</h2>
+<div class="sectionbody">
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Add a JavaScript port that uses Emscripten
+( <a href="https://github.com/kripken/emscripten" class="bare">https://github.com/kripken/emscripten</a> ) to compile the C code into
+JavaScript. See <code>Makefile.to-javascript.mak</code> and the contents of
+The <code>/fc-solve/site/wml</code> directory of the repository.</p>
+</li>
+<li>
+<p>Convert the CMake build system to the common <code>cmake/Shlomif_Common.cmake</code>
+file, which will facilitate cross-project maintenance. It is included inside
+the archive.</p>
+</li>
+<li>
+<p>Added a <code>--help</code> flag for the summarize-fc-solve executable.</p>
+</li>
+<li>
+<p>Got the test suite and the <code>dbm_fc_solver</code> and the <code>depth_dbm_fc_solver</code>
+to run properly on 32-bit architectures.</p>
+</li>
+<li>
+<p>The default rpm spec now runs the test suite.</p>
+</li>
+<li>
+<p>Add <a href="http://en.wikipedia.org/wiki/Const-correctness">const</a> annotations and
+moved declarations to where they are first assigned.</p>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="news_version_3_16_0_30_nov_2012">Version 3.16.0: (30-Nov-2012)</h2>
+<div class="sectionbody">
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Add the <code>-l micro-finance-improved</code> preset (or <code>-l mfi</code> for short),
+which somewhat improves the length of the solutions of the <code>micro-finance</code>
+preset.</p>
+</li>
+<li>
+<p>Add the <code>--flares-choice</code> option, which determines how the winning flare
+is chosen.</p>
+</li>
+<li>
+<p>Add the <code>--flares-iters-factor</code> option (or <code>-fif</code> for short), which
+specifies a factor to multiply the flares quotas.</p>
+</li>
+<li>
+<p>Add the <code>-l qualified-seed</code> preset (or <code>-l qs</code> for short),
+which somewhat improves the length of the solutions of the
+<code>-l micro-finance-improved</code> preset.</p>
+</li>
+<li>
+<p>The individual flares are now recycled and their memory is reused when
+they are no longer needed. This is a RAM optimisation, which is applicable
+only for flares-based presets.</p>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="news_version_3_14_1_01_nov_2012">Version 3.14.1: (01-Nov-2012)</h2>
+<div class="sectionbody">
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Fix the build on Windows with DWIM Perl and its Mingw32 (<code>strndup()</code>
+was missing).</p>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="news_version_3_14_0_31_oct_2012">Version 3.14.0: (31-Oct-2012)</h2>
+<div class="sectionbody">
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Got the tests to pass with <code>cmake -DFCS_WITHOUT_DEPTH_FIELD=1</code> by making
+the library behave the same as without it. This also affected the behaviour of
+<code>./fc-solve -l mo</code> with attempting to solve Baker’s Dozen deals.</p>
+</li>
+<li>
+<p>On UNIX platforms, <code>fc-solve</code> now exits gracefully with the message
+“Iterations count exceeded.”, upon receiving a SIGABRT signal. Can be
+triggered by executing <code>pkill -ABRT fc-solve</code>.</p>
+</li>
+<li>
+<p>The game states’ input routines now accept regular columns that start with
+a leading colon (":"). As a result, one can input the states as output from
+the solver with the <code>-p</code> and <code>-t</code> flags directly there.</p>
+</li>
+<li>
+<p>Added a 6th BeFS weight (see the <code>-asw</code> flag) of the inverse of the number
+of cards not above parents. Using
+<code>./freecell-solver-range-parallel-solve 1 32000 1 -p -t -sam --method a-star -to 0123467589 -asw 1,0,0,0,0,1 -sp r:tf -mi 100000</code>
+appears to be interesting.</p>
+</li>
+<li>
+<p>Allow test groups inside the <code>-to</code> and <code>-dto</code> flags to be ordered using
+the <code>=asw(…)</code> function and its parameters, based on the BeFS (Best-first
+search) weights calculation.</p>
+</li>
+<li>
+<p>Added the <code>-l amateur-star</code> (or <code>-l as</code> for short) preset, based on the
+<code>=asw(…)</code> ordering that is the fastest preset yet.</p>
+</li>
+<li>
+<p>Added the <code>-l micro-finance</code> (or <code>-l mf</code> for short) preset, based on the
+6th BeFS weight.</p>
+</li>
+<li>
+<p>Implement a Prune for games whose columns cannot be filled by any card
+(such as Baker’s Dozen), where moving the last card on a column to a
+different column is pointless. For more information, see
+<a href="https://groups.yahoo.com/neo/groups/fc-solve-discuss/conversations/topics/1121" class="bare">https://groups.yahoo.com/neo/groups/fc-solve-discuss/conversations/topics/1121</a> .</p>
+</li>
+<li>
+<p>In <code>dbm_fc_solver</code> and <code>depth_dbm_fc_solver</code>, implement the “DeBondt”
+encoding method for Freecell and Baker’s Dozen, which allows for an even more
+compact representation of the encoded states.</p>
+</li>
+<li>
+<p>The libfreecell-solver code is now 64-bit-enabled and many of the limits
+were converted to allow for 64-bit systems.</p>
+</li>
+<li>
+<p>Dropped support for Microsoft Visual C++ (<code>CL.EXE</code>) and other compilers
+that don&#8217;t support C99/gnu99.</p>
+</li>
+<li>
+<p>Add <code>scripts/convert-dbm-fc-solver-solution-to-fc-solve-solution.pl</code>
+to convert a solution output of the dbm_fc_solver to one compatible with
+fc-solve.</p>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="news_version_3_12_0_12_jun_2012">Version 3.12.0: (12-Jun-2012)</h2>
+<div class="sectionbody">
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Add the <code>--show-exceeded-limits</code> / <code>-sel</code> flag that removes some ambiguity
+in the output.</p>
+</li>
+<li>
+<p>Fix invoking the solver with <code>--set-pruning r:tf</code> in conjunction
+with <code>-opt</code>.</p>
+</li>
+<li>
+<p>Add the <code>-l three-eighty</code> preset.</p>
+</li>
+<li>
+<p>Many <code>dbm_solver.c</code> improvements including the implementations of kaztree
+and libavl2-derived backends, several major reductions of the memory
+consumption, and many code cleanups and bug fixes.</p>
+</li>
+<li>
+<p>Add support for building and testing the distribution in an out-of-tree
+build (e.g:
+<code>mkdir build ; cd build ; cmake -DFCS_WITH_SUITE=1 .. ; make ; make test</code>
+).</p>
+</li>
+<li>
+<p>A new experimental <code>fcc_solver.c</code> which aims to reduce memory consumption
+in exhaustive scans even further.</p>
+</li>
+<li>
+<p>Removed many #ifdefs from the code by creating common abstractions.</p>
+</li>
+<li>
+<p>Eliminate many GCC warnings with certain GCC compile flags.</p>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="news_version_3_10_0_15_jan_2012">Version 3.10.0: (15-Jan-2012)</h2>
+<div class="sectionbody">
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Convert the references to the web-site and repository away from berlios.de,
+as it was announced it will become offline.</p>
+</li>
+<li>
+<p>Bug fix: correct the handling of foundations with values 0 (e.g: <code>H-0</code>,
+<code>S-0</code> ).</p>
+</li>
+<li>
+<p>Bug fix: made the <code>-mi</code>/<code>--max-iters</code> flag global for all instances.
+Previously, it affected only the last one.</p>
+</li>
+<li>
+<p>Add an experimental <code>delta_states.c</code> implementation and
+<code>dbm_solver.c</code> that uses it to drive a Freecell Solver scan with an on-disk
+database (currently Google LevelDB and Berkeley DB are supported). So far
+it seems that with a limited cache size, this does not scale too well.</p>
+</li>
+<li>
+<p>Add the experimental <code>pruner-main.c</code> (not installed by default).</p>
+</li>
+<li>
+<p>Add support for generating "all_in_a_row" deals to
+<code>make_pysol_freecll_board.py</code> .</p>
+</li>
+<li>
+<p>Many small optimizations and cleanups.</p>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="news_version_3_8_0_01_jul_2011">Version 3.8.0: (01-Jul-2011)</h2>
+<div class="sectionbody">
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Fix the crashes when using <code>--trim-max-stored-states</code>.</p>
+</li>
+<li>
+<p>Add a man page generated by AsciiDoc instead of the token man page
+that was present previously.</p>
+</li>
+<li>
+<p>The number of states in the collection is now preserved if the verdict
+was unsolved.</p>
+</li>
+<li>
+<p>Add a <code>--solutions-directory</code> argument to <code>test_multi_parallel.c</code> .</p>
+</li>
+<li>
+<p>Fix the rpm spec - <code>%{version}</code> instead of <code>%{PACKAGE_VERSION}</code> .</p>
+</li>
+<li>
+<p>Add <code>scripts/parallel-range-solver-total</code> to solve a range of deals in
+parallel by splitting them into chunks.</p>
+</li>
+<li>
+<p>Add <code>-DFCS_BUILD_DOCS=</code> to CMake to avoid building documentation.</p>
+</li>
+<li>
+<p>Add a way to dump the valid outputs in
+<code>t/t/lib/Games/Solitaire/FC_Solve/CheckResults.pm</code> to files.</p>
+</li>
+<li>
+<p>Add an environment flag to filter out the valgrind test when running
+<code>make test</code>.</p>
+</li>
+<li>
+<p>Many refactorings.</p>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="news_version_3_6_0_01_feb_2011">Version 3.6.0: (01-Feb-2011)</h2>
+<div class="sectionbody">
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Now installing the <code>fcs_dllexport.h</code> header file. It is needed for use
+of libfreecell-solver in third-party programs, so previously including
+<code>fcs_user.h</code> did not work.</p>
+</li>
+<li>
+<p>Add the <code>--tracemem</code> compile-time option for tracing the amount of RAM
+and time used by Freecell Solver as a function of the iterations count.</p>
+</li>
+<li>
+<p>Bug fix for incrementally increasing the limits.</p>
+</li>
+<li>
+<p>Add a modified version of kazlib&#8217;s balanced binary search tree to the
+distribution so one will be available built-in. It can be used for both
+the states' storage and for the --rcs LRU cache.</p>
+</li>
+<li>
+<p>Revamped the various range solvers, while extracting common functionality
+into header files, functions and macros.</p>
+</li>
+<li>
+<p>Some relatively minor optimisations and code cleanups.</p>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="news_version_3_4_0_05_dec_2010">Version 3.4.0: (05-Dec-2010)</h2>
+<div class="sectionbody">
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Compiling without card flipping on by default now (finally it makes
+the code a little faster instead of slower.)</p>
+</li>
+<li>
+<p>Added the <code>--set-pruning</code> / <code>-sp</code> flag to turn on pruning. This sets the
+Horne play prune of moving cards that can no longer be used to build other
+cards upon to the foundations.</p>
+</li>
+<li>
+<p>New preset <code>-l enlightened-ostrich</code> / <code>-l eo</code> based on it, which is
+significantly faster than <code>-l foss-nessy</code>. Amadiro, who helped me with the
+Black Hole Solitaire solver picked the name.</p>
+</li>
+<li>
+<p>New preset <code>-l maliciously-obscure</code> / <code>-l mo</code> for short solutions.</p>
+</li>
+<li>
+<p>There&#8217;s now an option to set a different hard-coded freecells' num at
+compile-time.</p>
+</li>
+<li>
+<p>Add an experimental flag of "--trim-max-stored-states". Currently may
+crash the solver. (See the <code>Known_Bugs.txt</code> file).</p>
+</li>
+<li>
+<p>Added support for -fwhole-program and static linking the Freecell Solver
+executables. This yielded another speed boost.</p>
+</li>
+<li>
+<p>Forward ported the Google Dense Hash / Google Sparse Hash support for
+the positions and columns.</p>
+</li>
+<li>
+<p>Forward ported COMPACT_STATES.</p>
+</li>
+<li>
+<p>Add the <code>--ms</code> / <code>-M</code> flags to <code>make_pysol_freecell_board.py</code> to generate
+MS Deals even for the higher numbers (&gt; 32,000 which are not used for that in
+PySol and PySol FC).</p>
+</li>
+<li>
+<p>Add a compile-time option to use RCS-like states storage:
+<a href="http://fc-solve.shlomifish.org/to-do.html#rcs_state_storage" class="bare">http://fc-solve.shlomifish.org/to-do.html#rcs_state_storage</a> - this conserves
+a lot of RAM.</p>
+</li>
+<li>
+<p>Add a flag to get rid of visited_iter.</p>
+</li>
+<li>
+<p>Add FCS_WITHOUT_DEPTH_FIELD to get rid of depth if fcs_state_extra_info_t.</p>
+</li>
+<li>
+<p>Convert num_active_children to an unsigned short.</p>
+</li>
+<li>
+<p>Forward ported the FCS_STATE_STORAGE_LIBAVL2_TREE to the new fc-solve and
+the FCS_RCS_STATES. It seems to scale much better for FCS_RCS_STATES than
+FCS_STATE_STORAGE_INTERNAL_HASH.</p>
+</li>
+<li>
+<p>Converted the allocation of the BrFS queue items to alloc.{c,h} . This
+wastes less memory.</p>
+</li>
+<li>
+<p>Implement FCS_WITHOUT_LOCS_FIELDS . This removes the fc_locs / stack_locs
+from the extra_info&#8217;s to conserve more space. It also makes solving faster.</p>
+</li>
+<li>
+<p>Reduced the size of num_moves in move_stack_t.</p>
+</li>
+<li>
+<p>Add support for the internal compact moves to the Tatzer script.</p>
+</li>
+<li>
+<p>Added /trunk/fc-solve/scripts/automatic-build-for-982-2fc-solving/Makefile
+which automatically builds and runs fc-solve for solving the two-freecell MS
+deal No. 982.</p>
+</li>
+<li>
+<p>Updated the cmake configuration to use lib${LIB_SUFFIX} so it can be
+built on some 64-bit systems.</p>
+</li>
+<li>
+<p>Many small optimisations.</p>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="news_version_3_2_0_14_jul_2010">Version 3.2.0: (14-Jul-2010)</h2>
+<div class="sectionbody">
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Add the <code>--depth-tests-order</code> (or <code>-dto</code> for short) flag that allows
+varying the tests' order based on the depth. This gives way for interesting
+(and faster) searches.</p>
+</li>
+<li>
+<p>Add the <code>the-iglu-cabal</code> , <code>foss-nessy</code> and <code>tea-for-two</code> presets.
+The latter is optimized for two freecell deals.</p>
+</li>
+<li>
+<p>Fixed a bug where when specifying the <code>--max-iters</code> flag it did not
+yield an <code>FCS_STATE_SUSPEND_PROCESS</code> return code.</p>
+</li>
+<li>
+<p>Fix a crash when using a --prelude with a soft thread with a NULL name.</p>
+</li>
+<li>
+<p>Add support for Google&#8217;s Dense Hash for the states' storage and the stacks
+storage. It does not perform as well as our own custom hash.</p>
+</li>
+<li>
+<p>Internals: defined a boolean data type <code>fcs_bool_t</code> with two constants
+<code>TRUE</code> and <code>FALSE</code> , so it can be semantically different.</p>
+</li>
+<li>
+<p>Some optimizations.</p>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="news_version_3_0_0_23_may_2010">Version 3.0.0: (23-May-2010)</h2>
+<div class="sectionbody">
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Implement the flares API (see <code>USAGE.txt</code>), which allows running several
+alternative scans and then picking up the one with the shortest solution.</p>
+</li>
+<li>
+<p>Add the <code>-l children-playing-ball</code> and <code>-l sentient-pearls</code> presets
+that optimize on solution length (based on flares).</p>
+</li>
+<li>
+<p>Add <code>scripts/tag-fc-solve-release.bash</code> to tag using svn.</p>
+</li>
+<li>
+<p>Updated the CMake version in the build-on-win32.pl script.</p>
+</li>
+<li>
+<p>Add <code>scripts/stat-analysis-2.pl</code> which is a faster version of the
+script for statistical analysis of the solution length.</p>
+</li>
+<li>
+<p>Refactored the <code>split_cmd_line.c</code> module.</p>
+</li>
+<li>
+<p>Renamed many "a_star" and "A*" occurrences in the code to "BeFS", because
+what was thought to be the A* scan was actually Best-First-Search.</p>
+</li>
+<li>
+<p>Convert the soft-DFS tests' order to a list-of-lists-of-tests, and no
+longer recalculating the tests_list on any recycling.</p>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="news_version_2_42_0_27_march_2010">Version 2.42.0: (27-March-2010)</h2>
+<div class="sectionbody">
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Add the <code>-o</code> / <code>--output</code> flag to <code>fc-solve</code> to output to a file.</p>
+</li>
+<li>
+<p>Now installing the new executables ( freecell-solver-fc-pro-range-solve ,
+freecell-solver-multi-thread-solve , freecell-solver-range-parallel-solve ,
+etc.) by default.</p>
+</li>
+<li>
+<p>Bug fix: added a missing break after a case in cmd_line.c.</p>
+</li>
+<li>
+<p>Fixed the Makefile&#8217;s "pdfs" target.</p>
+</li>
+<li>
+<p>Converted many <code>char *</code> data types in the interface to
+<code>freecell_solver_string_t</code>, which can be <code>const char *</code>. The default is
+<code>const char *</code>.</p>
+</li>
+<li>
+<p><code>pqueue.h</code> was converted to the MIT/Expat license, with the permission of
+its author. Freecell Solver is now fully MIT/Expat.</p>
+</li>
+<li>
+<p>Fixed a Best-First-Search recycling memory leak that was reported by
+valgrind.</p>
+</li>
+<li>
+<p>Bug fix: now continuing a solution if a is_a_complete_scan thread terminates
+with the scans synergy set to <code>dead-end-marks</code>. This was done to avoid states
+reported as falsely unsolvable such as MS 254,076 with <code>-l by</code>.</p>
+</li>
+<li>
+<p>Added a forking range solver - not installed by default. See:
+<a href="https://groups.yahoo.com/neo/groups/fc-solve-discuss/conversations/topics/1038" class="bare">https://groups.yahoo.com/neo/groups/fc-solve-discuss/conversations/topics/1038</a> . Sometimes
+it yields somewhat better performance.</p>
+</li>
+<li>
+<p>Disabled tcmalloc in debug mode because it messes things up.</p>
+</li>
+<li>
+<p>Various internals cleanups and optimizations.</p>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="news_version_2_40_0_27_jan_2010">Version 2.40.0: (27-Jan-2010)</h2>
+<div class="sectionbody">
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>make_pysol_freecell_board.py now has support for "Black Hole" dealing. See:
+<a href="http://www.shlomifish.org/open-source/projects/black-hole-solitaire-solver/" class="bare">http://www.shlomifish.org/open-source/projects/black-hole-solitaire-solver/</a> .</p>
+</li>
+<li>
+<p>Added the "Scan:" header to indicate the current scan / soft-thread
+when using the -s -i flags.</p>
+</li>
+<li>
+<p><strong>Security</strong>: Fixed a string overflow bug in <code>cmd_line.c</code> with the <code>-asw</code>
+weights. As a result of this problem, Freecell Solver can write several NUL
+characters (<em>\0</em>) to after the string specifying the command line argument.</p>
+<div class="paragraph">
+<p>Now unspecified <code>-asw</code> are set to 0.</p>
+</div>
+</li>
+<li>
+<p>Fixed an off-by-1 iterations count report when a board was found to be
+solvable.</p>
+</li>
+<li>
+<p>iter_handler is now applied globally across all instances.</p>
+</li>
+<li>
+<p>Add the <code>-l blue-yonder</code> / <code>-l by</code> preset that is extra fast at solving
+the Microsoft 32,00 based on running the optimization algorithm:</p>
+<div class="paragraph">
+<p><a href="https://groups.yahoo.com/neo/groups/fc-solve-discuss/conversations/topics/1027" class="bare">https://groups.yahoo.com/neo/groups/fc-solve-discuss/conversations/topics/1027</a> .</p>
+</div>
+</li>
+<li>
+<p>Added a compile-time option to reduce the size of the internal move token
+structs. This may make memory consumption smaller, but definitely makes
+Freecell Solver run slower, so it is off by default.</p>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="news_version_2_38_0_29_dec_2009">Version 2.38.0: (29-Dec-2009)</h2>
+<div class="sectionbody">
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Made sure that one can build Freecell Solver outside the source directory
+without needing AsciiDoc. (That was a major build-system problem).</p>
+</li>
+<li>
+<p>Add a missing newline at the end of one of the lines of the help.</p>
+</li>
+<li>
+<p>Add the "-F"/"--pysolfc" flag to board_gen/make_pysol_freecell_board.py
+for generating PySolFC deals.</p>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="news_version_2_36_0_27_nov_2009">Version 2.36.0: (27-Nov-2009)</h2>
+<div class="sectionbody">
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Converted the <code>README</code> / <code>USAGE</code> / <code>NEWS</code> etc. files to
+<a href="http://www.methods.co.nz/asciidoc/">AsciiDoc</a> . The sources are in .txt
+and they are copied to their non-.txt files. The PDF build is still a bit
+broken due to a strange CMake problem.</p>
+</li>
+<li>
+<p>Simplified the test suite and benchmarking process. (Thanks to
+<a href="http://pythack.com/">LECA Dimitri (Pythack)</a> for the inspiration).</p>
+</li>
+<li>
+<p>Many documents were otherwise enhanced with examples and other enhancements.</p>
+</li>
+<li>
+<p>Inlined the hash comparison and several other functions in the code.
+This made the code a little faster.</p>
+</li>
+<li>
+<p>Clarified the documentation for broken versions of CMake (cmake-2.6.2)
+like the one that ships with some versions of Ubuntu.</p>
+</li>
+<li>
+<p>Fixed the tests for a valgrind regression.</p>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="news_version_2_34_0_10_jul_2009">Version 2.34.0: (10-Jul-2009)</h2>
+<div class="sectionbody">
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Added generation and installation of a libfreecell-solver.pc pkg-config
+file.</p>
+</li>
+<li>
+<p>Added the preset "toons-for-twenty-somethings".</p>
+<div class="paragraph">
+<p>It is an atomic moves preset that can solve the MS 32K deals.</p>
+</div>
+</li>
+<li>
+<p>Re-implemented the missing --next-instance/-ni flag.</p>
+</li>
+<li>
+<p>Added the "-l the-last-mohican"/"-l tlm" theme for Simple Simon
+that can solve more boards.</p>
+</li>
+<li>
+<p>Now can rpmbuild -tb a tar.bz2.</p>
+</li>
+<li>
+<p>Added information on running the test suite to the "HACKING" file.</p>
+</li>
+<li>
+<p>Added a Python ctypes example under examples/ .</p>
+</li>
+<li>
+<p>Added support for Sun Studio to Makefile.gnu. the -fast flag yields worse
+results than gcc.</p>
+</li>
+<li>
+<p>Fixed some typos in the --help and the "USAGE" files.</p>
+</li>
+<li>
+<p>Some internal changes:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>The soft_thread structure now uses a union.</p>
+</li>
+<li>
+<p>Added some tests to the command line-like argument splitting.</p>
+</li>
+<li>
+<p>fixed a minor bug with it.</p>
+</li>
+</ul>
+</div>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="news_version_2_32_1_25_jun_2009">Version 2.32.1: (25-Jun-2009)</h2>
+<div class="sectionbody">
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Added a "#define BUILDING_DLL 1" so fcs_dllexport.h will work fine on
+Microsoft Visual C++.</p>
+</li>
+<li>
+<p>Normalised the DLLEXPORT modifiers.</p>
+</li>
+<li>
+<p>Some fixes to the CMake build system:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>CHECK_C_COMPILER_FLAG now uses a different variable for each flag,
+since the variable was cached.</p>
+</li>
+<li>
+<p>tcmalloc is now truly optional.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Moved the declaration of the strncasecmp(a,b,c) macro for WIN32 systems
+to before its first use.</p>
+</li>
+<li>
+<p>All of this was done to fix many build/compilation problems.</p>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="news_version_2_32_0_24_jun_2009">Version 2.32.0: (24-Jun-2009)</h2>
+<div class="sectionbody">
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Added meaningful heading comments to the *.c and *.h files where they
+were absent.</p>
+</li>
+<li>
+<p>Many small memory/speed optimisations.</p>
+</li>
+<li>
+<p>Removed a lot of unnecessary code and merged a lot of code. Used:
+scripts/find-ids.rb for finding uncommonly occurring identifiers.</p>
+</li>
+<li>
+<p>Converted many macros to inline functions.</p>
+</li>
+<li>
+<p>Now calculating the bit-width of the <em>int</em> data type in the CMake version.
+There&#8217;s a fallback logic for it in config.h.</p>
+</li>
+<li>
+<p>Extracted empty_two_cols_from_new_state() in freecell.c.</p>
+</li>
+<li>
+<p>Restored the max_depth functionality. Currently not working very well.</p>
+</li>
+<li>
+<p>Now supporting inline on non-GCC compilers using CMake.</p>
+</li>
+<li>
+<p>Made many functions that were used only once or twice inline.</p>
+</li>
+<li>
+<p>Added the --iters-update-on option to the threaded range solver.</p>
+</li>
+<li>
+<p>Fixed some CMake bugs (especially wrong compiler flags to check).</p>
+</li>
+<li>
+<p>Optionally link with Google&#8217;s tcmalloc, which yields better performance
+(especially for the multi-threaded solver).</p>
+</li>
+<li>
+<p>Added the support for DLLEXPORT to not export fc_solve_* from the DLL.
+This reduces the size of the .so / .dll considerably.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Added -fvisibility=hidden to the build.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Got rid of using preset.c for FCS_FREECELL_ONLY.</p>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="news_version_2_30_0_07_jun_2009">Version 2.30.0: (07-Jun-2009)</h2>
+<div class="sectionbody">
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Added the presets "gooey-unknown-thing", "sand-stone" and "slick-rock"
+to minimize the resultant solutions' length.</p>
+</li>
+<li>
+<p>The Freecell Solver states storage and columns storage can now be
+made to use any of the trees provided by libavl2
+( <a href="http://www.stanford.edu/~blp/avl/" class="bare">http://www.stanford.edu/~blp/avl/</a> ) . The results seem to be somewhat
+slower than libJudy and much slower than our own custom hash.</p>
+</li>
+<li>
+<p>Fixed the auto-moves calculation in fc_pro_iface.c .</p>
+<div class="paragraph">
+<p>It was too pessimistic before, and had an off-by-one error. A card
+can be automatically moved if all foundations of opposite color are -2
+and the opposite foundation is -3.</p>
+</div>
+</li>
+<li>
+<p>Now one can exclude the Simple Simon-related move routines and logic from
+the binaries during compilation. See "FCS_DISABLE_SIMPLE_SIMON" in the
+CMake configuration.</p>
+</li>
+<li>
+<p>Added scripts/measure-binaries-sizes.rb to measure the sizes of the binaries
+in various configurations.</p>
+</li>
+<li>
+<p>Merged Makefile.icc , Makefile.tendra , Makefile.tcc , Makefile.pcc
+and Makefile.lcc into Makefile.gnu. Which compiler can be specified using
+the Makefile.gnu COMPILER variable.</p>
+</li>
+<li>
+<p>Added the threaded_range_solver "--worker-step $N" argument.</p>
+<div class="paragraph">
+<p>What is does is allow allocating uniform quotas to the different threads
+to process. So far increasing the quotas from 1 to 16 does not seem to improve
+the situation.</p>
+</div>
+</li>
+<li>
+<p>Fixed many warnings reported by the Intel C++ compiler (icc)</p>
+</li>
+<li>
+<p>Re-organized the code - renamed many files, moved declarations and
+definitions to different files, and did a lot of overhaul.</p>
+</li>
+<li>
+<p>Got rid of FCS_DEBUG_MOVES - it was never used and became obnoxious.</p>
+</li>
+<li>
+<p>Added scripts/verify-simple-simon-range.pl and
+scripts/simple-simon-stats-analysis.pl .</p>
+</li>
+<li>
+<p>Added a regression test for verifying the validity of a
+Simple Simon solution.</p>
+</li>
+<li>
+<p>Fixed Makefile.gnu to propagate CFLAGS to CREATE_SHARED.</p>
+</li>
+<li>
+<p>Implemented FCS_WITHOUT_CARD_FLIPPING to exclude a lot of card flipping
+code at build time. It is disabled by default because strangely it seems
+to make the execution speed worse.</p>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="news_version_2_28_1_18_may_2009">Version 2.28.1 (18-May-2009)</h2>
+<div class="sectionbody">
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Added a fix to an off-by-one-error in alloc.h that caused a segfault
+on x86-64. (Thanks to Ido Kanner).</p>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="news_version_2_28_0_17_may_2009">Version 2.28.0 (17-May-2009)</h2>
+<div class="sectionbody">
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Several cleanups, refactoring and optimizations - especially to the
+freecell.c file.</p>
+</li>
+<li>
+<p>Converted more move functions to positions_by_rank.</p>
+</li>
+<li>
+<p>Changed the hash function from Bob Jenkins&#8217;s to perl 5&#8217;s and inlined it.
+These were substantial optimizations.</p>
+</li>
+<li>
+<p>Unified many macros in state.h instead of having duplicate definitions
+for every state type. Verified that the alternative state types (
+COMPACT_STATES and DEBUG_STATES) build correctly.</p>
+</li>
+<li>
+<p>Added the optional -Werror=implicit-function-declarations flag to the
+compiler.</p>
+</li>
+<li>
+<p>Added tests for some Simple Simon boards.</p>
+</li>
+<li>
+<p>Created an fcs_cards_column_t type and converted the internals to use it.</p>
+</li>
+<li>
+<p>Added the threaded range solver - freecell-solver-multi-thread-solve .
+It performs better than the serial one on my machine.  It is built only if
+pthreads (POSIX threads) is found.</p>
+</li>
+<li>
+<p>Add the HACKING file with some information on benchmarking.</p>
+</li>
+<li>
+<p>Renamed the configuration script to "Tatzer" so people who are used
+to Autoconf&#8217;s "./configure ; make ; make install" won&#8217;t use it.</p>
+</li>
+<li>
+<p>Got rid of all the max_num_$something in the dynamically-growing
+arrays because num_$something is enough to tell where the limit is and grow it
+if necessary. There&#8217;s now a lot of bit-fiddling logic to grow the
+dynamically-growing arrays when necessary.</p>
+</li>
+<li>
+<p>Added support for adding the gcc -fomit-frame-pointer and -march=$CPU_ARCH
+flags.</p>
+</li>
+<li>
+<p>Added the following makefiles for alternative Linux compilers:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Makefile.icc</p>
+</li>
+<li>
+<p>Makefile.tcc</p>
+</li>
+<li>
+<p>Makefile.tendra</p>
+</li>
+<li>
+<p>Makefile.lcc</p>
+</li>
+<li>
+<p>Makefile.pcc</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>So far only Intel&#8217;s icc and TenDRA produce working executables that
+pass all the tests. The code had to be adapted to be compiled using TenDRA.</p>
+</div>
+</li>
+<li>
+<p>Added scripts/fcs-win32-create-package.pl that provides some guidance
+in creating a package under Windows.</p>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="news_version_2_26_0_27_apr_2009">Version 2.26.0 (27-Apr-2009)</h2>
+<div class="sectionbody">
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Now Freecell Solver can be compiled with gcc-2.95 (again). It was needed
+to test it with this old gcc version.</p>
+</li>
+<li>
+<p>Some fixes to CMakeLists.txt.</p>
+</li>
+<li>
+<p>fcs_hash.c: now the secondary hash value calculation is optional
+and should be enabled explicitly. Without it, Freecell Solver is faster:</p>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="https://groups.yahoo.com/neo/groups/fc-solve-discuss/conversations/topics/941" class="bare">https://groups.yahoo.com/neo/groups/fc-solve-discuss/conversations/topics/941</a></p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Surgically removed fcs_hash.c&#8217;s "optimizing_for_cache" which made a small
+speed improvement.</p>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="https://groups.yahoo.com/neo/groups/fc-solve-discuss/conversations/topics/942" class="bare">https://groups.yahoo.com/neo/groups/fc-solve-discuss/conversations/topics/942</a></p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Made t/Makefile generated by CMake, so the tests can be run from the
+packages source distribution. (Previously t/Makefile was excluded, and
+since it was not generated, was not available).</p>
+</li>
+<li>
+<p>Eliminated BUILD_TYPE=release warnings.</p>
+</li>
+<li>
+<p>Optimized fc_solve_sfs_move_freecell_cards_on_top_of_stacks() . This
+involved a lot of refactoring and re-structuring of the internals. Now
+Freecell Solver is significantly faster.</p>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="https://groups.yahoo.com/neo/groups/fc-solve-discuss/conversations/topics/943" class="bare">https://groups.yahoo.com/neo/groups/fc-solve-discuss/conversations/topics/943</a></p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Fixed the testing targets and the building of the rpm from the tar.gz
+archive.</p>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="news_version_2_24_0_18_apr_2009">Version 2.24.0 (18-Apr-2009)</h2>
+<div class="sectionbody">
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Many code cleanups and internal changes. Reduced the size of the library
+considerably.</p>
+</li>
+<li>
+<p>Added Makefile.llvm to build LLVM bitcodes from the Freecell Solver
+sources. So far, they seem significantly slower than the native code compiled
+using gcc-4.3.2.</p>
+</li>
+<li>
+<p>Implemented "cmake -DCMAKE_BUILD_TYPE=profile" . Can be activated using
+"./configure --profile"</p>
+</li>
+<li>
+<p>Now build (but not installing) freecell-solver-fc-pro-range-solve , which
+runs a range of MS-Freecell / Freecell Pro boards using the solver and outputs
+the number of FCS moves, the number of FC-Pro moves, and the FC-Pro moves
+in standard notation.</p>
+</li>
+<li>
+<p>Fixed some bugs (crashes, leaks, etc.) when running -opt on a range
+of boards (or recycling instances with -opt in general).</p>
+</li>
+<li>
+<p>Some CMake / Build system cleanups and improvements. Among them, trimmed
+the distribution from unnecessary files.</p>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="news_version_2_22_0_31_mar_2009">Version 2.22.0 (31-Mar-2009)</h2>
+<div class="sectionbody">
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Various improvements to the CMake build process:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Updated freecell-solver-config</p>
+</li>
+<li>
+<p>Fixed the building if build from a different directory.
+(e.g: mkdir build ; cd build ; cmake ..)</p>
+</li>
+<li>
+<p>Now also building a static library by default. There&#8217;s a cmake option
+to trigger it off.</p>
+</li>
+<li>
+<p>Thanks to RISKO Gergely (the maintainer of the Freecell Solver Debian
+package) for a contributed patch.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Fixed the rpmbuild -tb process on Mandriva Linux Cooker (and
+possibly other systems).</p>
+</li>
+<li>
+<p>Removed some old, unnecessary and/or no-longer-working files.</p>
+</li>
+<li>
+<p>Converted the package from the Public Domain to the MIT/Expat Licence
+( <a href="http://en.wikipedia.org/wiki/MIT_License" class="bare">http://en.wikipedia.org/wiki/MIT_License</a> ). This change was done due to
+the many problems with licensing source code under the public domain:</p>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="http://linuxmafia.com/faq/Licensing_and_Law/public-domain.html" class="bare">http://linuxmafia.com/faq/Licensing_and_Law/public-domain.html</a></p>
+</li>
+</ul>
+</div>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="news_version_2_20_0_26_mar_2009">Version 2.20.0 (26-Mar-2009)</h2>
+<div class="sectionbody">
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Updated the "NEWS" file (this file) with all the previous versions up
+to 0.4 (the first release after the first initial release).</p>
+</li>
+<li>
+<p>Many fixes to the Win32 NSIS Package creation process of CMake/CPack .
+The NSIS package is now built and installed properly.</p>
+</li>
+<li>
+<p>Fixed a bug with the recycling logic of the optimization thread.</p>
+<div class="paragraph">
+<p>This influenced "freecell-solver-range-parallel-solve 1 2 1 -opt" among other
+things. In the process, I refactored the code a bit after trying to follow
+some false leads.</p>
+</div>
+</li>
+<li>
+<p>Fixed the --prefix flag in ./configure to be treated as a string instead
+of a boolean.</p>
+</li>
+<li>
+<p>Fixed the running of the executables under a specified PREFIX
+( <a href="http://www.cmake.org/Wiki/CMake_RPATH_handling" class="bare">http://www.cmake.org/Wiki/CMake_RPATH_handling</a> )</p>
+</li>
+<li>
+<p>Minor changes to "README", "INSTALL" and "USAGE".</p>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="news_version_2_18_0_19_mar_2009">Version 2.18.0 (19-Mar-2009)</h2>
+<div class="sectionbody">
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Added the FCS_FREECELL_ONLY compile-time flag to hard-code the settings
+for Freecell and thus allow faster run-time. On a Pentium 4-2.4GHz machine
+running Mandriva Linux Cooker, this allows one to solve the Microsoft 32,000 in
+194.56353 seconds ( 164 deals / second ) instead of
+228.84 seconds for the generic version ( 140 deals / second ).</p>
+</li>
+<li>
+<p>Fixed using libredblack ( <a href="http://libredblack.sourceforge.net/" class="bare">http://libredblack.sourceforge.net/</a> ) for states
+and stacks storage. (Compile-time options)</p>
+</li>
+<li>
+<p>Added an option to use libJudy ( <a href="http://judy.sourceforge.net/" class="bare">http://judy.sourceforge.net/</a> ) for states
+and stacks storage. Yields better performance than libredblack, but worse
+than the internal hash.</p>
+</li>
+<li>
+<p>Added the -Wall by default for gcc in CMake.</p>
+</li>
+<li>
+<p>Added the boards target to generate 24.board and 1941.board.</p>
+</li>
+<li>
+<p>Updated the TODO file.</p>
+</li>
+<li>
+<p>Added previous NEWS items for previous versions (in this file).</p>
+</li>
+<li>
+<p>Now documenting the --version flag in USAGE.</p>
+</li>
+<li>
+<p>Added an experimental ./configure convenience script (written in
+Perl) to run CMake using some configuration options. NOTE: Please don&#8217;t
+use it to build packages.</p>
+</li>
+<li>
+<p>Added "scripts/time-fcs.pl" to help time a
+freecell-solver-range-parallel-solve dump.</p>
+</li>
+<li>
+<p>Got rid of the hard_dfs() scan. It is still accepted as an argument, but
+is now using the soft_dfs() routines instead.</p>
+</li>
+<li>
+<p>Many internal refactorings, cleanups tweaks and fine-tunings.</p>
+</li>
+<li>
+<p>Moved away change_ver.sh to scripts/old/change_ver.sh - it does not
+seem to be used any longer.</p>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="news_version_2_16_0_15_mar_2009">Version 2.16.0 (15-Mar-2009)</h2>
+<div class="sectionbody">
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Made sure the indexes of the iterations when the "-s -i" flags are specified
+are consecutive. Previously, they were much more inconsistent.</p>
+</li>
+<li>
+<p>(Internals) Split ptr_state_with_locations_t into ptr_state_t (the key)
+and ptr_state_extra_info_t (the value). Not all code inside the #ifdef&#8217;s
+(like the libavl / libredblack code) was ported to use it instead.</p>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="news_version_2_14_0_25_jan_2009">Version 2.14.0 (25-Jan-2009)</h2>
+<div class="sectionbody">
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Fixed the compilation with profiling information in Makefile.gnu (should be
+of concern only to developers).</p>
+</li>
+<li>
+<p>Optimized move_stack_cards_to_different_stacks, yielding a substantial
+speed increase.</p>
+</li>
+<li>
+<p>Converted the identifiers from starting with freecell_solver_ to
+starting with fc_solve_ , which is shorter and saner.</p>
+<div class="paragraph">
+<p>freecell_solver_user_ is still used in the API in order to not break
+compatibility.</p>
+</div>
+</li>
+<li>
+<p>Made sure the effect of the "--sequence-move unlimited" option is not
+dependent on other options, so the sequence move will always be unlimited.
+(Thanks to larrysan for reporting this bug).</p>
+</li>
+<li>
+<p>Fixed run-tests.pl (and as a result also ctest -V and make test) to
+run properly after a raw unpacking.</p>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="news_version_2_12_0_10_dec_2008">Version 2.12.0 (10-Dec-2008)</h2>
+<div class="sectionbody">
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>A New Configuration and build system based on CMake
+( <a href="http://www.cmake.org/" class="bare">http://www.cmake.org/</a> ) which results in faster configurations
+and builds, and a much reduced archive size.</p>
+</li>
+<li>
+<p>There&#8217;s a new suite of automated tests. See the file README for details
+how to run them.</p>
+</li>
+<li>
+<p>There&#8217;s a new --version flag that prints the version of the library.</p>
+</li>
+<li>
+<p>A speed optimization to the command line processing based on a radix-tree.</p>
+</li>
+<li>
+<p>Many bug-fixes since 2.8.0. (Released as 2.8.x).</p>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="news_version_2_8_0_28_sep_2002">Version 2.8.0 (28-Sep-2002)</h2>
+<div class="sectionbody">
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Better documentation and help screens. See:</p>
+<div class="paragraph">
+<p><a href="http://freshmeat.net/articles/time-to-rethink-your-help-flag" class="bare">http://freshmeat.net/articles/time-to-rethink-your-help-flag</a></p>
+</div>
+</li>
+<li>
+<p>A preset system - see the "-l" flag in USAGE.</p>
+</li>
+<li>
+<p>An option to read parameters from files. See "--read-from-file" in USAGE.</p>
+</li>
+<li>
+<p>Finally, it is now possible to run one instance of the solver after the
+other in case the other one has returned a negative verdict. This is useful
+for example to run an atomic moves preset after a meta-moves one, as the
+latter cannot guarantee an accurate false verdict.</p>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="news_version_2_6_0_12_jul_2002">Version 2.6.0 (12-Jul-2002)</h2>
+<div class="sectionbody">
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Atomic moves and some atomic moves presets have been added. Solving
+using atomic moves guarantees that there will be no false negatives, but
+is slower than the Meta-moves-based presets. (At least for now). It also
+yields less interesting solutions.</p>
+</li>
+<li>
+<p>There is now a "--prelude" switch (see USAGE) that allows running a
+static order of quotas at the beginning of the scan for the participating
+soft threads. It makes constructing faster solving presets easier, especially
+after utilising this code:</p>
+<div class="paragraph">
+<p><a href="http://code.google.com/p/fc-solve/source/browse/#svn%2Ffc-solve%2Ftrunk%2Ffc-solve%2Fpresets" class="bare">http://code.google.com/p/fc-solve/source/browse/#svn%2Ffc-solve%2Ftrunk%2Ffc-solve%2Fpresets</a></p>
+</div>
+<div class="paragraph">
+<p>Also see the "--st-name" option.</p>
+</div>
+</li>
+<li>
+<p>The PySol "Fan" game preset was added to make_pysol_freecell_board.py and
+to Freecell Solver itself. Note that the game is played with 18
+columns/stacks , so Freecell Solver will usually need to be recompiled.</p>
+</li>
+<li>
+<p>Several other command line options:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>"--reparent-states"</p>
+</li>
+<li>
+<p>"--calc-real-depth"</p>
+</li>
+<li>
+<p>"--optimization-tests-order"</p>
+</li>
+<li>
+<p>"--scans-synergy"</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>See the "USAGE" file for more information.</p>
+</div>
+</li>
+<li>
+<p>The internal code has undergone several speed boosts that made Freecell
+Solver much faster. Now the INDIRECT_STACK_STATES is a bit faster than
+COMPACT_STATES.</p>
+</li>
+<li>
+<p>Updated the TODO list.</p>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="news_version_2_4_0_29_mar_2002">Version 2.4.0 (29-Mar-2002)</h2>
+<div class="sectionbody">
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Now several scans are to operate on the same states' collection. This is
+done using a mechanism called "soft threads", which is switched in user-land
+and does not require system multi-threading. In the file "USAGE" see:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>"-nst"  / "--next-soft-thread"</p>
+</li>
+<li>
+<p>"-nht"  / "--next-hard-thread"</p>
+</li>
+<li>
+<p>"-step" / "--soft-thread-step"</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>fcs_cl.h was included in the RPM .spec.</p>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="news_version_2_2_0_18_feb_2002">Version 2.2.0 (18-Feb-2002)</h2>
+<div class="sectionbody">
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Freecell Solver&#8217;s version is now kept in the file ver.txt</p>
+</li>
+<li>
+<p>Added manual pages symbolic links for the following command-line board
+generators:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>make-gnome-freecell-board</p>
+</li>
+<li>
+<p>make_pysol_freecell_board.py</p>
+</li>
+<li>
+<p>make-aisleriot-freecell-board</p>
+</li>
+<li>
+<p>pi-make-microsoft-freecell-board</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Moved more declarations of functions to header files (ending with .h)</p>
+</li>
+<li>
+<p>Added some compiler-optional inline annotations for functions.</p>
+</li>
+<li>
+<p>The identifiers of the library are now all residing under freecell_solver_</p>
+</li>
+<li>
+<p>New flag:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>"--max-stored-states"</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>The package can now be built as an RPM for Red Hat Linux and compatible
+systems by running rpmbuild -ta on the archive.</p>
+</li>
+<li>
+<p>Several speed-ups.</p>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="news_version_2_0_0_19_dec_2001">Version 2.0.0 (19-Dec-2001)</h2>
+<div class="sectionbody">
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Added some presets for the PySol games "Beleaguered Castle", "Citadel"
+and "Streets and Alleys".</p>
+</li>
+<li>
+<p>Re-factoring of the scans code to make it simpler.</p>
+</li>
+<li>
+<p>Added many functions to the external API.</p>
+</li>
+<li>
+<p>fc-solve now uses it, so it is fully loosely-coupled with the library
+it is linked against.</p>
+</li>
+<li>
+<p>Added a randomized DFS scan (with a user-defined seed).</p>
+</li>
+<li>
+<p>Win32 Makefile can now generate a working DLL.</p>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="news_version_1_10_0_02_oct_2001">Version 1.10.0 (02-Oct-2001)</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Added support for solving deals of "Simple Simon" in addition to
+all the freecell-like variants that it could solve before.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="news_version_1_8_0_31_aug_2001">Version 1.8.0 (31-Aug-2001)</h2>
+<div class="sectionbody">
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>A new build and configuration process based on the GNU Autotools (Autoconf,
+Automake and libtool). This allows portably build shared and static libraries
+and stuff like that.</p>
+</li>
+<li>
+<p>The GNOME AisleRiot board-generation program can generate the boards of
+the more Solitaire variants which are supported by Freecell Solver.</p>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="news_version_1_6_0_11_apr_2001">Version 1.6.0 (11-Apr-2001)</h2>
+<div class="sectionbody">
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Freecell Solver now has a solution optimization scan. Check it out
+by adding the "-opt" flag.</p>
+</li>
+<li>
+<p>Many comments were added to the code, and you are welcome to go over
+it and see if you understand everything that goes on there. If you don&#8217;t,
+contact me and I&#8217;ll add some more comments.</p>
+</li>
+<li>
+<p>Several speed optimizations were done in the internal hash, so I think
+it should run at least a little faster.</p>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="news_version_1_4_0_07_feb_2001">Version 1.4.0 (07-Feb-2001)</h2>
+<div class="sectionbody">
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Many fixes for bugs and memory leaks.</p>
+</li>
+<li>
+<p>A Soft-DFS scan - Depth-First Search that does not use procedural recursion
+was introduced.</p>
+</li>
+<li>
+<p>A New Best-first Search Scan (called A* in the code and documentation) was
+introduced.</p>
+</li>
+<li>
+<p>A New Breadth-First-Search (BFS or BrFS) scan was introduced. It&#8217;s not
+very practical.</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>The choice between all those scans can be specified at run-time using
+command-line arguments.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="news_version_1_2_0_21_dec_2000">Version 1.2.0 (21-Dec-2000)</h2>
+<div class="sectionbody">
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Several moves were improved or added, so it can solve more layouts.</p>
+</li>
+<li>
+<p>A more robust command-line argument handling, so less segfaults can be
+expected if it&#8217;s improperly used.</p>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="news_version_1_0_0_19_nov_2000">Version 1.0.0 (19-Nov-2000)</h2>
+<div class="sectionbody">
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Added support for solving more game types.</p>
+</li>
+<li>
+<p>Can be compiled so it will be less memory intensive (INDIRECT_STACK_STATES).</p>
+</li>
+<li>
+<p>There&#8217;s an API for use by third-party developers. It supports
+suspending a solution process and resuming it from its last position.</p>
+</li>
+<li>
+<p>Several random bug-fixes.</p>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="news_version_0_10_0_09_oct_2000">Version 0.10.0 (09-Oct-2000)</h2>
+<div class="sectionbody">
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Support was added for several Solitaire variants besides Freecell, such as
+Forecell, Seahaven Towers and Eight Off.</p>
+</li>
+<li>
+<p>It now can emits the moves themselves, instead of just the intermediate
+solutions.</p>
+</li>
+<li>
+<p>Several bug-fixes.</p>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="news_version_0_8_0_28_aug_2000">Version 0.8.0 (28-Aug-2000)</h2>
+<div class="sectionbody">
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Some bug-fixes.</p>
+</li>
+<li>
+<p>Support for a variable number of freecells, columns, and cards per column.</p>
+</li>
+<li>
+<p>Board generators for Microsoft Freecell, Freecell Pro and PySol.</p>
+</li>
+<li>
+<p>An option to use the balanced binary tree implementations of libavl
+( <a href="http://adtinfo.org/" class="bare">http://adtinfo.org/</a> ), glib ( <a href="http://en.wikipedia.org/wiki/GLib" class="bare">http://en.wikipedia.org/wiki/GLib</a> ), or
+libredblack ( <a href="http://libredblack.sourceforge.net/" class="bare">http://libredblack.sourceforge.net/</a> ). Using them makes
+Freecell Solver about 33% faster.</p>
+</li>
+<li>
+<p>Support for using "T" instead of "10" in board input/output.</p>
+</li>
+<li>
+<p>Improved Documentation.</p>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="news_version_0_6_28_jul_2000">Version 0.6 (28-Jul-2000)</h2>
+<div class="sectionbody">
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>An extra movement that allows Freecell Solver to solve some boards which
+it could not solve previously.</p>
+</li>
+<li>
+<p>The order of the stacks and freecells is preserved throughout the
+solutions.</p>
+</li>
+<li>
+<p>There is now an option to limit to a certain number of iterations (so
+Freecell Solver will stop before it consumes too much memory)</p>
+</li>
+<li>
+<p>Specify the order of the moves that will be tested. Usually, a test
+order can be found that will solve a given board really quickly.</p>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="news_version_0_4_06_jun_2000">Version 0.4 (06-Jun-2000)</h2>
+<div class="sectionbody">
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Three major code optimizations. Freecell Solver now runs much faster.</p>
+</li>
+<li>
+<p>Freecell Solver is now able to start solving from a non-initial board.</p>
+</li>
+</ol>
+</div>
+</div>
+</div>
+</div>
+<div id="footer">
+<div id="footer-text">
+Last updated 2018-10-27 19:35:04 IDT
+</div>
+</div>
+</body>
+</html>

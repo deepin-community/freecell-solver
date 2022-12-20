@@ -1,0 +1,49 @@
+/* vim:syn=tt2
+*/
+#include <tap.h>
+#include <string.h>
+
+#include "card.c"
+
+static int main_tests(void)
+{
+[%- SET num_tests = 0 -%]
+[% IF implicit_t %]
+[% SET t_array = [1] %]
+[% ELSE %]
+[% SET t_array = [0,1] %]
+[% END %]
+[% FOREACH suit = suits %]
+[% FOREACH rank = ranks %]
+[% FOREACH t = t_array %]
+[%- SET t_key = t ? "t" : "non_t" -%]
+[%- SET card_string = ('"'
+            _   rank.value.${t_key}
+            _   suit.value
+            _   '"') -%]
+    {
+        fcs_card mycard;
+
+        mycard = fc_solve_card_parse_str([% card_string %]);
+        /* TEST */
+        [%- SET num_tests = num_tests + 1 %]
+        ok (fcs_card_suit(mycard) == [% suit.idx %],
+            "Parsing the suit of card " [% card_string %]);
+        /* TEST */
+        [%- SET num_tests = num_tests + 1 %]
+        ok (fcs_card_rank(mycard) == [% rank.idx %],
+            "Parsing the rank of card " [% card_string %]);
+    }
+[% END %]
+[% END %]
+[% END %]
+
+    return 0;
+}
+
+int main(void)
+{
+  plan_tests([% num_tests %]);
+  main_tests();
+  return exit_status();
+}

@@ -1,0 +1,20 @@
+---
+digests:
+  freecell_default24:
+    hexdigest: 2aa30503392ad034286d2c11adb710860fa6bc30b85d1e4db58f0fe7b4594580
+    len: 31740
+  freecell_flares_cp_1_circular_deal_6:
+    hexdigest: 29dee8ef8f0c179e24720c811f7722d8e521352ddb2edd1f9fc47769f16cffca
+    len: 42751
+  freecell_flares_cp_1_deal_6:
+    hexdigest: 29dee8ef8f0c179e24720c811f7722d8e521352ddb2edd1f9fc47769f16cffca
+    len: 42751
+  freecell_flares_equally_spaced_quotas_deal_1:
+    hexdigest: c4580f701111a19b0b44558baf79aeb304761178f3aee14d62e2fac4cff74d69
+    len: 25484
+  freecell_flares_run_indef_1_deal_6:
+    hexdigest: c717d60208cc4537237f3dc3d8de879ea526e8e58348ed91baec5ac062df2c77
+    len: 25283
+  freecell_simple_flare_2:
+    hexdigest: 3005be8c864b4692418a57122418e07355d9a0084a32ae562d893800376cdbc4
+    len: 21178

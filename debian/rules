@@ -1,0 +1,26 @@
+#!/usr/bin/make -f
+
+DEB_AUTO_UPDATE_DEBIAN_CONTROL := true
+DEB_CMAKE_EXTRA_FLAGS := -DDATADIR=/usr/share -DFCS_WITH_TEST_SUITE= \
+                         -DCMAKE_EXE_LINKER_FLAGS="$(shell dpkg-buildflags --get LDFLAGS)" \
+                         -DCMAKE_MODULE_LINKER_FLAGS="$(shell dpkg-buildflags --get LDFLAGS)" \
+                         -DCMAKE_SHARED_LINKER_FLAGS="$(shell dpkg-buildflags --get LDFLAGS)"
+DEB_CLEAN_EXCLUDE := config.h.orig
+
+include /usr/share/cdbs/1/class/cmake.mk
+include /usr/share/cdbs/1/rules/debhelper.mk
+
+binary-post-install/freecell-solver-bin::
+	mv debian/freecell-solver-bin/usr/bin/pi-make-microsoft-freecell-board debian/freecell-solver-bin/usr/bin/make-microsoft-freecell-board
+	mv debian/freecell-solver-bin/usr/share/man/man6/pi-make-microsoft-freecell-board.6 debian/freecell-solver-bin/usr/share/man/man6/make-microsoft-freecell-board.6
+	mv debian/freecell-solver-bin/usr/bin/make_pysol_freecell_board.py debian/freecell-solver-bin/usr/bin/make-pysol-freecell-board
+	mv debian/freecell-solver-bin/usr/share/man/man6/make_pysol_freecell_board.py.6 debian/freecell-solver-bin/usr/share/man/man6/make-pysol-freecell-board.6
+	mv debian/freecell-solver-bin/usr/bin/transpose-freecell-board.py debian/freecell-solver-bin/usr/bin/transpose-freecell-board
+	mv debian/freecell-solver-bin/usr/share/man/man6/transpose-freecell-board.py.6 debian/freecell-solver-bin/usr/share/man/man6/transpose-freecell-board.6
+	chmod a+x debian/freecell-solver-bin/usr/share/freecell-solver/presets/*
+	mkdir -p debian/freecell-solver-bin/usr/share/lintian/overrides/
+	cp debian/freecell-solver-bin.lintian debian/freecell-solver-bin/usr/share/lintian/overrides/freecell-solver-bin
+	cp board_gen/README debian/freecell-solver-bin/usr/share/doc/freecell-solver-bin/README.board_gen
+	mkdir -p debian/libfreecell-solver-dev/usr/lib/${DEB_HOST_MULTIARCH}/pkgconfig
+	mv debian/libfreecell-solver-dev/usr/lib/pkgconfig/libfreecell-solver.pc debian/libfreecell-solver-dev/usr/lib/${DEB_HOST_MULTIARCH}/pkgconfig
+	rmdir debian/libfreecell-solver-dev/usr/lib/pkgconfig

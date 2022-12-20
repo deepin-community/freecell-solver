@@ -1,0 +1,204 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?asciidoc-toc?>
+<?asciidoc-numbered?>
+<article xmlns="http://docbook.org/ns/docbook" xmlns:xl="http://www.w3.org/1999/xlink" version="5.0" xml:lang="en">
+<info>
+<title>Freecell Solver&#8217;s Authors and Contributors</title>
+<date>2018-09-05</date>
+<author>
+<personname>
+<firstname>Shlomi</firstname>
+<surname>Fish</surname>
+</personname>
+<email>shlomif@cpan.org</email>
+</author>
+<authorinitials>SF</authorinitials>
+</info>
+<section xml:id="authors_and_contributors">
+<title>Freecell Solver&#8217;s Authors and Contributors List</title>
+<itemizedlist>
+<listitem>
+<simpara><emphasis role="strong">Shlomi Fish</emphasis> ( <link xl:href="http://www.shlomifish.org/">http://www.shlomifish.org/</link> ) - doing most of the work on
+Freecell Solver.</simpara>
+</listitem>
+<listitem>
+<simpara><emphasis role="strong">Eric Warmenhoven</emphasis> - sending a program that generates the board of GNOME
+Freecell.</simpara>
+</listitem>
+<listitem>
+<simpara><emphasis role="strong">Hai Huang</emphasis> - noting several boards of Microsoft Freecell that could not be
+solved by Freecell Solver.</simpara>
+</listitem>
+<listitem>
+<simpara><emphasis role="strong">Magnus Reftel</emphasis> - noting the correct procedure for calculating how many
+cards can be moved as a function of the free freecells and free stacks.</simpara>
+</listitem>
+<listitem>
+<simpara><emphasis role="strong">Colin Plumb</emphasis> - writing the MD5 code.</simpara>
+</listitem>
+<listitem>
+<simpara><emphasis role="strong">Ron Rivest</emphasis> - inventing the MD5 hashing algorithm.</simpara>
+</listitem>
+<listitem>
+<simpara><emphasis role="strong">Jim Horne</emphasis> - supplying the shuffling algorithm for
+Microsoft Freecell/Freecell Pro.</simpara>
+</listitem>
+<listitem>
+<simpara><emphasis role="strong">Tom Holroyd</emphasis> - sending several Seahaven Towers games which Freecell Solver
+was unable to solve, thus making me improve the algorithm.</simpara>
+</listitem>
+<listitem>
+<simpara><emphasis role="strong">Markus F. X. J. Oberhumer</emphasis> - writing PySol, on whose code I based the board
+generation program for it. He also contributed some patches.</simpara>
+</listitem>
+<listitem>
+<simpara><emphasis role="strong">Justin Heyes-Jones</emphasis> - wrote a nice introduction to the A* algorithm, and
+wrote the basis for the pqueue.c code.</simpara>
+</listitem>
+<listitem>
+<simpara><emphasis role="strong">Stephan Kulow</emphasis> - integrated Freecell Solver into the kpat Solitaire suite for
+KDE 2.1 and onwards; reported several bugs and memory leaks.</simpara>
+</listitem>
+<listitem>
+<simpara><emphasis role="strong">Michael Keller</emphasis> - Contributing some useful input about some minor features
+lacking and the Spades/Clubs mix-up.</simpara>
+</listitem>
+<listitem>
+<simpara><emphasis role="strong">GeYong</emphasis> - He created Freecell Tool, whose randomized scan provided
+inspiration for the random-DFS scan of Freecell Solver.</simpara>
+</listitem>
+<listitem>
+<simpara><emphasis role="strong">Adrian Ettlinger</emphasis> - Integrating Freecell Solver into "Freecell Pro", and
+contributing some input.</simpara>
+</listitem>
+<listitem>
+<simpara><emphasis role="strong">The perl 5.x Hackers</emphasis> - I copied its hash function.</simpara>
+</listitem>
+<listitem>
+<simpara><emphasis role="strong">Gergeley Kontra</emphasis> - wrote a Vim script to align text which I used.</simpara>
+</listitem>
+<listitem>
+<simpara><emphasis role="strong">Bob Jenkins</emphasis> - wrote the lookup2 hash function, which was used as
+the primary hash until reverted back to the perl 5.x hash.
+(check <link xl:href="http://burtleburtle.net/bob/hash/">http://burtleburtle.net/bob/hash/</link>)</simpara>
+</listitem>
+<listitem>
+<simpara><emphasis role="strong">Tzafrir Cohen</emphasis> - His "RPM" lecture provided help in creating the RPM
+<literal>.spec</literal> file and constructing RPMs (RPM Package Manager) for Freecell
+Solver.</simpara>
+</listitem>
+<listitem>
+<simpara><emphasis role="strong">Yotam Rubin</emphasis> - Preparing an initial Debian Package.</simpara>
+</listitem>
+<listitem>
+<simpara><emphasis role="strong">Risko Gergely</emphasis> - Maintaining the current Debian Package and contributing
+some patches to the CMake build system.</simpara>
+</listitem>
+<listitem>
+<simpara><emphasis role="strong">Chris Moore</emphasis> - Pointing to an out-of-date comment regarding the
+<literal>MAX_NUM_CARDS_IN_A_STACK</literal> which I updated.</simpara>
+</listitem>
+<listitem>
+<simpara><emphasis role="strong">Anonymous</emphasis> (on <link xl:href="http://xrl.us/h6ex">http://xrl.us/h6ex</link> ) - for pointing out the malloc.h and
+leading double underscores problems.</simpara>
+</listitem>
+<listitem>
+<simpara><emphasis role="strong">Con Radchenko</emphasis> - supplying a small patch, and reporting a bug with
+<literal>--method dfs</literal>, and supplying some other input. Integrated Freecell Solver
+into <link xl:href="http://pysolfc.sourceforge.net/">http://pysolfc.sourceforge.net/</link> .</simpara>
+</listitem>
+<listitem>
+<simpara><emphasis role="strong">larrysan45</emphasis> - reporting a problem with <literal>--sequence-move unlimited</literal>
+and <literal>--empty-stacks-filled-by kings</literal>, which resulted in a bug fix.</simpara>
+</listitem>
+<listitem>
+<simpara><emphasis role="strong">Ido Kanner</emphasis> ( <link xl:href="http://ik.homelinux.org/">http://ik.homelinux.org/</link> ) - reporting a segfault when running
+freecell-solver-2.28.0 on x86-64, and allowing us to diagnose it.</simpara>
+</listitem>
+<listitem>
+<simpara><emphasis role="strong">Gary Campbell</emphasis> ( <link xl:href="http://numin8r.us/">http://numin8r.us/</link> ) - participating in the mailing list
+and inspiring some past (and possibly future) work on optimising the
+length of the resultant solutions. He was given the honour of naming the
+"sand-stone" and "slick-rock" "-l" presets. Has his own solver for
+Freecell for DOS on his homepage.</simpara>
+</listitem>
+<listitem>
+<simpara><emphasis role="strong">LECA Dimitri (Pythack)</emphasis> ( <link xl:href="http://pythack.com/">http://pythack.com/</link> ) - tried to run the
+Freecell Solver test suite and benchmarks on Archlinux, reported some
+problems in the process. This in turn eventually made us simplify the process
+and also uncovered some bugs in the dependencies.</simpara>
+</listitem>
+<listitem>
+<simpara><link xl:href="http://commons.wikimedia.org/wiki/User:Stannered">http://commons.wikimedia.org/wiki/User:Stannered</link> - created
+<link xl:href="http://commons.wikimedia.org/wiki/File:Stop_hand_nuvola.svg">The stop sign
+that we use on the download page</link>, which is under the Creative Commons
+Attribution ShareAlike licence. Thanks!</simpara>
+</listitem>
+<listitem>
+<simpara><emphasis role="strong">David Stevenson</emphasis> - inspiring a documentation clarification for broken
+versions of CMake (e.g: cmake-2.6.2).</simpara>
+</listitem>
+<listitem>
+<simpara><emphasis role="strong">Jurij Bortnik</emphasis> ( <link xl:href="http://freecellgamesolutions.com/">http://freecellgamesolutions.com/</link> ) - reported some broken
+links on the Freecell Solver homepage.</simpara>
+</listitem>
+<listitem>
+<simpara><emphasis role="strong">Kaz Kylheku</emphasis> ( <link xl:href="http://www.kylheku.com/~kaz/">http://www.kylheku.com/~kaz/</link> ) - author and originator of
+kazlib ( <link xl:href="http://www.kylheku.com/~kaz/kazlib.html">http://www.kylheku.com/~kaz/kazlib.html</link> ) whose BSDLed balanced binary
+search tree is included in the Freecell Solver distribution.</simpara>
+</listitem>
+<listitem>
+<simpara><emphasis role="strong">Don Woods</emphasis> ( <link xl:href="http://www.icynic.com/~don/">http://www.icynic.com/~don/</link> ) - wrote an early Freecell
+solver ( <link xl:href="http://fc-solve.shlomifish.org/don_woods.html">http://fc-solve.shlomifish.org/don_woods.html</link> ), whose source code
+inspired the early “delta states” algorithm, which is currently used by the
+dbm_fc_solver.</simpara>
+</listitem>
+<listitem>
+<simpara><emphasis role="strong">Michiel de Bondt</emphasis> ( <link xl:href="http://www.math.ru.nl/~debondt/">http://www.math.ru.nl/~debondt/</link> ) - suggested a
+way to improve the delta states algorithm, so states will be stored more
+compactly. Currently implemented in the dbm_fc_solver. See
+<link xl:href="https://groups.yahoo.com/neo/groups/fc-solve-discuss/conversations/topics/1115">https://groups.yahoo.com/neo/groups/fc-solve-discuss/conversations/topics/1115</link> .</simpara>
+</listitem>
+<listitem>
+<simpara><emphasis role="strong">Alon Zakai</emphasis> ( <link xl:href="http://github.com/kripken">http://github.com/kripken</link> ) - maintainer of
+<link xl:href="https://github.com/kripken/emscripten">emscripten</link>, which allows one to convert
+LLVM bitcode (and ergo code in C, C++ and other languages) into JavaScript.
+Inspired some changes to make Freecell Solver’s build-process more
+user-friendly and idiot-proof.</simpara>
+</listitem>
+<listitem>
+<simpara><emphasis role="strong">Olaf van der Kruk</emphasis> - reported an issue with using the online
+JavaScript-based solver (which is mostly translated from the C source using
+emscripten), which uncovered several bugs.</simpara>
+</listitem>
+<listitem>
+<simpara><emphasis role="strong">The Mayhem Team</emphasis> - ( Alexandre Rebert, Thanassis Avgerinos, Sang Kil Cha,
+David Brumley, and Manuel Egele from Cylab at Carnegie Mellon University ) for
+reporting some failures of Freecell Solver executables to handle
+malformed input in the Debian Bug Tracker, e.g:
+<link xl:href="https://bugs.debian.org/cgi-bin/bugreport.cgi?bug=715914">https://bugs.debian.org/cgi-bin/bugreport.cgi?bug=715914</link> with
+steps to reproduce.</simpara>
+</listitem>
+<listitem>
+<simpara><link xl:href="http://insanecoding.blogspot.com/">“Insane Coder”</link> - providing the alternative
+vasprintf() and asprintf() implementation, that was placed under the
+<literal>asprintf-1.0</literal> directory and used in case the host system does not provide
+such a function.</simpara>
+</listitem>
+<listitem>
+<simpara><emphasis role="strong">A. Sinan Unur</emphasis> - for writing the article
+<link xl:href="https://www.nu42.com/2016/01/excellent-optimization-story.html">“An Excellent Optimization Story”</link>
+that motivated a similar optimisation in <literal>var_base_int.h</literal> (originally linked
+from <link xl:href="http://perlweekly.com/archive/234.html">this Perl Weekly issue</link>).</simpara>
+</listitem>
+<listitem>
+<simpara><link xl:href="https://www.scaleway.com/">Scaleway</link> for allowing us to rent an ARM Linux
+server to fix the production code and tests there.</simpara>
+</listitem>
+<listitem>
+<simpara><link xl:href="http://www.mageia.org/en/">Mageia</link> - its build-system caught some test
+failures.</simpara>
+</listitem>
+</itemizedlist>
+</section>
+</article>

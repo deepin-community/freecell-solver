@@ -1,0 +1,246 @@
+freecell-solver (5.0.0-deepin1) unstable; urgency=medium
+
+  * Rebuild
+
+ -- Deepin Packages Builder <packages@deepin.org>  Mon, 14 Nov 2022 17:36:01 +0800
+
+freecell-solver (5.0.0-2) unstable; urgency=medium
+
+  * Fix build by adding build dependency on python3-six
+
+ -- Gergely Risko <risko@debian.org>  Mon, 31 Dec 2018 16:34:50 +0100
+
+freecell-solver (5.0.0-1) unstable; urgency=medium
+
+  * Imported upstream version 5.0.0
+  * Added new binaries: transpose-freecell-board and
+    gen-multiple-pysol-layouts
+  * Changed docs from txt to asciidoc
+  * Got rid of bzip2 compression flag in debian/sources
+  * Use salsa instead of alioth for git packaging
+
+ -- Gergely Risko <risko@debian.org>  Mon, 31 Dec 2018 11:53:55 +0100
+
+freecell-solver (4.18.0-1) unstable; urgency=medium
+
+  * Imported upstream version 4.18.0
+
+ -- Gergely Risko <risko@debian.org>  Sat, 05 May 2018 23:35:29 +0200
+
+freecell-solver (4.16.0-1) unstable; urgency=medium
+
+  *  Imported upstream version 4.16.0
+
+ -- Gergely Risko <risko@debian.org>  Mon, 12 Feb 2018 22:01:00 +0100
+
+freecell-solver (4.14.1-1) unstable; urgency=medium
+
+  * Imported upstream version 4.14.1
+
+ -- Gergely Risko <risko@debian.org>  Tue, 24 Oct 2017 19:24:27 +0200
+
+freecell-solver (4.8.0-1) unstable; urgency=medium
+
+  * Imported upstream version 4.8.0 (closes: #841445)
+
+ -- Gergely Risko <risko@debian.org>  Sat, 28 Jan 2017 10:27:50 +0100
+
+freecell-solver (4.2.0-1) unstable; urgency=low
+
+  * Imported upstream version 4.2.0 (closes: #808709)
+  * Update homepage URL (closes: #820440)
+
+ -- Gergely Risko <risko@debian.org>  Sun, 01 May 2016 10:58:18 +0200
+
+freecell-solver (3.26.0-1) unstable; urgency=low
+
+  * Imported Upstream version 3.26.0
+    (closes: #715914, #716097, #716171, #716286)
+  * Proper quoting in debian/rules (closes: #715224)
+  * Added shebang to the new video-editing.sh preset
+  * Renamed AUTHORS, README, TODO, USAGE and NEWS to end with .txt
+
+ -- Gergely Risko <risko@debian.org>  Fri, 13 Jun 2014 16:27:45 +0200
+
+freecell-solver (3.20.0-1) unstable; urgency=low
+
+  * Imported Upstream version 3.20.0
+  * Added shebang to the new presets
+  * Standards-version and dh_compat update
+  * Pass on `dpkg-buildflags --get LDFLAGS' for hardening
+
+ -- Gergely Risko <risko@debian.org>  Thu, 27 Jun 2013 13:37:12 +0200
+
+freecell-solver (3.12.0-1) unstable; urgency=low
+
+  * New upstream version.
+
+ -- Gergely Risko <risko@debian.org>  Fri, 22 Jun 2012 10:08:05 +0200
+
+freecell-solver (3.4.0-1) unstable; urgency=low
+
+  * New upstream version (closes: #589387):
+    - no more string exceptions (closes: #585191)
+
+ -- Gergely Risko <risko@debian.org>  Mon, 10 Jan 2011 20:24:21 +0100
+
+freecell-solver (2.34.0-1) unstable; urgency=low
+
+  * New upstream version
+
+ -- RISKO Gergely <risko@debian.org>  Wed, 15 Jul 2009 17:42:19 +0300
+
+freecell-solver (2.20.0-1) unstable; urgency=low
+
+  * Imported Upstream version 2.20.0
+    - fixed new manpage cmake issues in the upstream sources
+  * fixed the references in fc-solve-board_gen.pod and fc-solve.pod
+  * fixed freecell-solver-config in the dev package
+  * added watch file
+  * added Vcs and Homepage fields to debian/control
+
+ -- RISKO Gergely <risko@debian.org>  Fri, 27 Mar 2009 00:23:48 +0200
+
+freecell-solver (2.16.0-1) unstable; urgency=low
+
+  * Imported Upstream version 2.16.0 (closes: #518440)
+  * cmake is the new buildsystem
+
+ -- RISKO Gergely <risko@debian.org>  Sun, 15 Mar 2009 23:42:21 +0200
+
+freecell-solver (2.8.10-1) unstable; urgency=low
+
+  * New upstream release
+  * fixed override disparity
+
+ -- RISKO Gergely <risko@debian.org>  Wed, 30 Mar 2005 20:12:47 +0200
+
+freecell-solver (2.8.9-1) unstable; urgency=low
+
+  * New upstream release
+    - it says now that microsoft #11982 is unsolvable (closes: #211869)
+  * cdbsized things
+
+ -- RISKO Gergely <risko@debian.org>  Wed, 30 Mar 2005 13:15:22 +0200
+
+freecell-solver (2.8.6-1) unstable; urgency=low
+
+  * New upstream release
+    - added new config.guess, sub and friends (closes: #177573)
+
+ -- RISKO Gergely <risko@debian.org>  Fri, 21 Mar 2003 08:00:52 +0100
+
+freecell-solver (2.8.3-2) unstable; urgency=low
+
+  * regenerated configure and friends with new libtool (closes: #177189)
+
+ -- RISKO Gergely <risko@debian.org>  Sat, 18 Jan 2003 16:57:27 +0100
+
+freecell-solver (2.8.3-1) unstable; urgency=low
+
+  * New upstream release
+
+ -- RISKO Gergely <risko@debian.org>  Fri, 17 Jan 2003 14:45:59 +0100
+
+freecell-solver (2.8.2-1) unstable; urgency=low
+
+  * New upstream version
+  * now using more upstream man pages
+
+ -- RISKO Gergely <risko@debian.org>  Sun, 10 Nov 2002 18:09:28 +0100
+
+freecell-solver (2.8.0-1) unstable; urgency=low
+
+  * New upstream release
+
+ -- RISKO Gergely <risko@debian.org>  Wed,  2 Oct 2002 16:38:40 +0200
+
+freecell-solver (2.6.3-1) unstable; urgency=low
+
+  * new upstream release
+
+ -- RISKO Gergely <risko@debian.org>  Thu, 29 Aug 2002 19:13:53 +0200
+
+freecell-solver (2.6.2-1) unstable; urgency=low
+
+  * new upstream release
+
+ -- RISKO Gergely <risko@debian.org>  Thu, 25 Jul 2002 17:12:37 +0200
+
+freecell-solver (2.6.0-1) unstable; urgency=low
+
+  * new upstream release
+  * wow, it's not native now, I hope it won't be native again...
+
+ -- RISKO Gergely <risko@debian.org>  Tue, 16 Jul 2002 17:37:29 +0200
+
+freecell-solver (2.4.2.1) unstable; urgency=low
+
+  * new upstream release
+  * since now this is a native debian package
+
+ -- RISKO Gergely <risko@debian.org>  Tue,  2 Jul 2002 14:33:01 +0200
+
+freecell-solver (2.4.1-1) unstable; urgency=low
+
+  * new upstream version.
+
+ -- RISKO Gergely <risko@debian.org>  Sat,  6 Apr 2002 11:35:18 +0200
+
+freecell-solver (2.2.2-1) unstable; urgency=low
+
+  * New upstream version.
+
+ -- RISKO Gergely <risko@debian.org>  Sat, 23 Feb 2002 19:26:54 +0100
+
+freecell-solver (2.0.0-2) unstable; urgency=low
+
+  * copyright file fix (closes: Bug#126593)
+
+ -- RISKO Gergely <risko@debian.org>  Thu, 27 Dec 2001 12:26:39 +0100
+
+freecell-solver (2.0.0-1) unstable; urgency=low
+
+  * The package is now lintian clean.
+  * New upstream version.
+
+ -- RISKO Gergely <risko@debian.org>  Mon, 24 Dec 2001 10:59:04 +0100
+
+freecell-solver (1.10.1-1) unstable; urgency=low
+
+  * New upstream release
+
+ -- RISKO Gergely <risko@debian.org>  Wed, 21 Dec 2001 18:51:23 +0100
+
+freecell-solver (1.8.2-1) unstable; urgency=low
+
+  * New upstream release
+  * Everything except freecell-solver-bin is lintian clean
+
+ --  <yotam@makif.omer.k12.il>  Sat, 22 Sep 2001 16:56:40 +0300
+
+freecell-solver (1.6.7-1) unstable; urgency=low
+
+  * New upstream release
+
+ -- Yotam Rubin <yotam@makif.omer.k12.il>  Mon, 11 Jun 2001 02:51:44 +0300
+
+freecell-solver (1.6.6-1) unstable; urgency=low
+
+  * New upstream release
+
+ -- Yotam Rubin <yotam@makif.omer.k12.il>  Thu, 31 May 2001 23:27:56 +0300
+
+freecell-solver (1.6.5-1) unstable; urgency=low
+
+  * New upstream release
+
+ -- Yotam Rubin <yotam@makif.omer.k12.il>  Sun, 27 May 2001 02:10:08 +0300
+
+freecell-solver (1.6.4-1) unstable; urgency=low
+
+  * First Debian release
+
+ -- Yotam Rubin <yotam@makif.omer.k12.il>  Wed, 23 May 2001 22:53:00 +0300
+
+

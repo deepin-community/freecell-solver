@@ -1,0 +1,4 @@
+debian/tmp/usr/lib/libfreecell-solver.a
+debian/tmp/usr/lib/libfreecell-solver.so
+debian/tmp/usr/include/*
+debian/tmp/usr/lib/pkgconfig/libfreecell-solver.pc

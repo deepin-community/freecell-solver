@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+<head>
+<meta charset="UTF-8"/>
+<!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge"/><![endif]-->
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<meta name="generator" content="Asciidoctor 1.5.7.1"/>
+<meta name="author" content="Shlomi Fish"/>
+<title>INSTALL file for Freecell Solver</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,600italic%7CNoto+Serif:400,400italic,700,700italic%7CDroid+Sans+Mono:400,700"/>
+<link rel="stylesheet" href="./asciidoctor.css"/>
+</head>
+<body class="article">
+<div id="header">
+<h1>INSTALL file for Freecell Solver</h1>
+<div class="details">
+<span id="author" class="author">Shlomi Fish</span><br/>
+<span id="email" class="email"><a href="mailto:shlomif@cpan.org">shlomif@cpan.org</a></span><br/>
+</div>
+</div>
+<div id="content">
+<div class="sect1">
+<h2 id="compilation">Quick and Dirty Compilation</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Freecell Solver was converted to use CMake ( <a href="http://www.cmake.org/" class="bare">http://www.cmake.org/</a> )
+starting from version 2.12.0. You&#8217;ll need to install CMake version 3
+or later from your distribution&#8217;s repository or from its source
+distribution.</p>
+</div>
+<div class="paragraph">
+<p>If you are building from the repository, you also need to put the
+module <code>Shlomif_Common.cmake</code> from
+<a href="https://bitbucket.org/shlomif/shlomif-cmake-modules" class="bare">https://bitbucket.org/shlomif/shlomif-cmake-modules</a> in the CMake path.
+Normally the build process will try to download it and use it for you.</p>
+</div>
+<div class="paragraph">
+<p>Next, run:</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>cmake-gui .         # For the GUI configuration applet</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Or:</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>ccmake .            # For the Curses-based configuration applet</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>With a fallback to:</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>cmake .             # Non-interactive application.</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>This will build and install the "freecell-solver" shared library,
+and "fc-solve" which is the Freecell Solver executable for you.</p>
+</div>
+<div class="paragraph">
+<p>It will also build and install the board generation program. More
+information about them can be found in the "board_gen" sub-directory of
+this distribution.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="changing_limits">Changing the Maximal number of Freecells or Stacks or Cards per Stack</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The following parameters to the CMake script, which accept an argument,
+control the hard-coded parameters of the Freecell Solver executables:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>-DMAX_NUM_FREECELLS=$NUM</code> - The maximal number of freecells</p>
+</li>
+<li>
+<p><code>-DMAX_NUM_STACKS=$NUM</code> - The maximal number of stacks (columns)</p>
+</li>
+<li>
+<p><code>-DMAX_NUM_INITIAL_CARDS_IN_A_STACK=$NUM</code> - The maximal number of
+initial cards per stack.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Notice that it&#8217;s very important to set the maximal number of initial cards
+per stack, or else it&#8217;s possible that a stack will eventually overflow.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="compact_states"><mark>"Compact" States</mark></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>In Compact States, the contents of the card stacks are stored inside the
+states, rather than in a central collection (where the states contain only
+pointers). Despite their name, they actually consume more memory than Indirect
+Stack States which are the default.</p>
+</div>
+<div class="paragraph">
+<p>Compact states used to be faster than Indirect Stack States, but now it
+seems indirect stack states are at least slightly faster even for games
+whose stacks are not very long. If you still would wish to enable it,
+pass the <code>-DSTATES_TYPE=COMPACT_STATES</code> flag to CMake.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="win32_install">Installing under Win32</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Consult the CMake documentation for generating a Visual C++ , MinGW32
+etc. compatible makefile or project.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="testing">Testing</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>To test Freecell Solver, you need to:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Configure it.</p>
+</li>
+<li>
+<p>Run <code>make install</code>.</p>
+</li>
+<li>
+<p>Type <code>ctest -V</code> (or <code>make test</code> just for the verdict).</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>Please report any errors to me ( <a href="http://www.shlomifish.org/me/contact-me/" class="bare">http://www.shlomifish.org/me/contact-me/</a> ).</p>
+</div>
+</div>
+</div>
+</div>
+<div id="footer">
+<div id="footer-text">
+Last updated 2018-10-04 13:31:50 IDT
+</div>
+</div>
+</body>
+</html>

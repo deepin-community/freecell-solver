@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?asciidoc-toc?>
+<?asciidoc-numbered?>
+<article xmlns="http://docbook.org/ns/docbook" xmlns:xl="http://www.w3.org/1999/xlink" version="5.0" xml:lang="en">
+<info>
+<title>INSTALL file for Freecell Solver</title>
+<date>2018-10-04</date>
+<author>
+<personname>
+<firstname>Shlomi</firstname>
+<surname>Fish</surname>
+</personname>
+<email>shlomif@cpan.org</email>
+</author>
+<authorinitials>SF</authorinitials>
+</info>
+<section xml:id="compilation">
+<title>Quick and Dirty Compilation</title>
+<simpara>Freecell Solver was converted to use CMake ( <link xl:href="http://www.cmake.org/">http://www.cmake.org/</link> )
+starting from version 2.12.0. You&#8217;ll need to install CMake version 3
+or later from your distribution&#8217;s repository or from its source
+distribution.</simpara>
+<simpara>If you are building from the repository, you also need to put the
+module <literal>Shlomif_Common.cmake</literal> from
+<link xl:href="https://bitbucket.org/shlomif/shlomif-cmake-modules">https://bitbucket.org/shlomif/shlomif-cmake-modules</link> in the CMake path.
+Normally the build process will try to download it and use it for you.</simpara>
+<simpara>Next, run:</simpara>
+<literallayout class="monospaced">cmake-gui .         # For the GUI configuration applet</literallayout>
+<simpara>Or:</simpara>
+<literallayout class="monospaced">ccmake .            # For the Curses-based configuration applet</literallayout>
+<simpara>With a fallback to:</simpara>
+<literallayout class="monospaced">cmake .             # Non-interactive application.</literallayout>
+<simpara>This will build and install the "freecell-solver" shared library,
+and "fc-solve" which is the Freecell Solver executable for you.</simpara>
+<simpara>It will also build and install the board generation program. More
+information about them can be found in the "board_gen" sub-directory of
+this distribution.</simpara>
+</section>
+<section xml:id="changing_limits">
+<title>Changing the Maximal number of Freecells or Stacks or Cards per Stack</title>
+<simpara>The following parameters to the CMake script, which accept an argument,
+control the hard-coded parameters of the Freecell Solver executables:</simpara>
+<itemizedlist>
+<listitem>
+<simpara><literal>-DMAX_NUM_FREECELLS=$NUM</literal> - The maximal number of freecells</simpara>
+</listitem>
+<listitem>
+<simpara><literal>-DMAX_NUM_STACKS=$NUM</literal> - The maximal number of stacks (columns)</simpara>
+</listitem>
+<listitem>
+<simpara><literal>-DMAX_NUM_INITIAL_CARDS_IN_A_STACK=$NUM</literal> - The maximal number of
+initial cards per stack.</simpara>
+</listitem>
+</itemizedlist>
+<simpara>Notice that it&#8217;s very important to set the maximal number of initial cards
+per stack, or else it&#8217;s possible that a stack will eventually overflow.</simpara>
+</section>
+<section xml:id="compact_states">
+<title><emphasis role="marked">"Compact" States</emphasis></title>
+<simpara>In Compact States, the contents of the card stacks are stored inside the
+states, rather than in a central collection (where the states contain only
+pointers). Despite their name, they actually consume more memory than Indirect
+Stack States which are the default.</simpara>
+<simpara>Compact states used to be faster than Indirect Stack States, but now it
+seems indirect stack states are at least slightly faster even for games
+whose stacks are not very long. If you still would wish to enable it,
+pass the <literal>-DSTATES_TYPE=COMPACT_STATES</literal> flag to CMake.</simpara>
+</section>
+<section xml:id="win32_install">
+<title>Installing under Win32</title>
+<simpara>Consult the CMake documentation for generating a Visual C++ , MinGW32
+etc. compatible makefile or project.</simpara>
+</section>
+<section xml:id="testing">
+<title>Testing</title>
+<simpara>To test Freecell Solver, you need to:</simpara>
+<orderedlist numeration="arabic">
+<listitem>
+<simpara>Configure it.</simpara>
+</listitem>
+<listitem>
+<simpara>Run <literal>make install</literal>.</simpara>
+</listitem>
+<listitem>
+<simpara>Type <literal>ctest -V</literal> (or <literal>make test</literal> just for the verdict).</simpara>
+</listitem>
+</orderedlist>
+<simpara>Please report any errors to me ( <link xl:href="http://www.shlomifish.org/me/contact-me/">http://www.shlomifish.org/me/contact-me/</link> ).</simpara>
+</section>
+</article>

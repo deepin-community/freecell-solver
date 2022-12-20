@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?asciidoc-toc?>
+<?asciidoc-numbered?>
+<article xmlns="http://docbook.org/ns/docbook" xmlns:xl="http://www.w3.org/1999/xlink" version="5.0" xml:lang="en">
+<info>
+<title>Freecell Solver Copyright and Licensing Information</title>
+<date>2018-09-05</date>
+</info>
+<section xml:id="licensing">
+<title>Freecell Solver Copyright and Licensing Information</title>
+<simpara>Relax, this is not GPL software, but rather it is distributed under the
+MIT/Expat License ( <link xl:href="http://en.wikipedia.org/wiki/MIT_License">http://en.wikipedia.org/wiki/MIT_License</link> ).</simpara>
+<simpara>What this means is that the code and binaries here can be linked against
+anything, converted to any different license, freely used and distributed, and
+anything else without any restrictions whatsoever. No Strings Attached!™</simpara>
+<simpara>&#8201;&#8212;&#8201;Shlomi Fish</simpara>
+<simpara>Here is the license text (or "legalese") for most of the code:</simpara>
+<screen>Copyright (c) 2000 Shlomi Fish
+
+Permission is hereby granted, free of charge, to any person
+obtaining a copy of this software and associated documentation
+files (the "Software"), to deal in the Software without
+restriction, including without limitation the rights to use,
+copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the
+Software is furnished to do so, subject to the following
+conditions:
+
+The above copyright notice and this permission notice shall be
+included in all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
+EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES
+OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
+NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT
+HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY,
+WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR
+OTHER DEALINGS IN THE SOFTWARE.</screen>
+<simpara><literal>kaz_tree.c</literal> and <literal>kaz_tree.h</literal> are distributed under the following 3-clause
+BSD license:</simpara>
+<screen>Copyright 2009
+Kaz Kylheku &lt;kkylheku@gmail.com&gt;
+Vancouver, Canada
+All rights reserved.
+
+BSD License:
+
+Redistribution and use in source and binary forms, with or without
+modification, are permitted provided that the following conditions
+are met:
+
+  1. Redistributions of source code must retain the above copyright
+     notice, this list of conditions and the following disclaimer.
+  2. Redistributions in binary form must reproduce the above copyright
+     notice, this list of conditions and the following disclaimer in
+     the documentation and/or other materials provided with the
+     distribution.
+  3. The name of the author may not be used to endorse or promote
+     products derived from this software without specific prior
+     written permission.
+
+THIS SOFTWARE IS PROVIDED ``AS IS'' AND WITHOUT ANY EXPRESS OR
+IMPLIED WARRANTIES, INCLUDING, WITHOUT LIMITATION, THE IMPLIED
+WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE.</screen>
+</section>
+</article>
